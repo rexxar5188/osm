@@ -1,0 +1,626 @@
+[
+  {
+    "_id": "d312d850-e54c-4673-8271-7508b7a82eaf",
+    "id": "slice_hackfest_nst",
+    "SNSSAI-identifier": {
+      "slice-service-type": "uLLC"
+    },
+    "name": "slice_hackfest_nst",
+    "netslice-subnet": [
+      {
+        "id": "slice_hackfest_nsd_1",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      },
+      {
+        "id": "slice_hackfest_nsd_2",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      }
+    ],
+    "quality-of-service": {
+      "id": 1
+    },
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "storage": {
+        "fs": "local",
+        "descriptor": "package",
+        "path": "/app/storage/",
+        "folder": "d312d850-e54c-4673-8271-7508b7a82eaf"
+      },
+      "modified": 1564020536.3916318,
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "created": 1564020536.3916318,
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ]
+    },
+    "netslice-vld": [
+      {
+        "type": "ELAN",
+        "name": "slice_hackfest_vld_mgmt",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "mgmt-network": true,
+        "id": "slice_hackfest_vld_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "id": "slice_hackfest_vld_data",
+        "name": "slice_hackfest_vld_data"
+      }
+    ]
+  },
+  {
+    "_id": "d312d850-e54c-4673-8271-7508b7a82eaf",
+    "id": "slice_hackfest_nst",
+    "SNSSAI-identifier": {
+      "slice-service-type": "eMBB"
+    },
+    "name": "slice_hackfest_nst",
+    "netslice-subnet": [
+      {
+        "id": "slice_hackfest_nsd_1",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      },
+      {
+        "id": "slice_hackfest_nsd_2",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      }
+    ],
+    "quality-of-service": {
+      "id": 1
+    },
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "storage": {
+        "fs": "local",
+        "descriptor": "package",
+        "path": "/app/storage/",
+        "folder": "d312d850-e54c-4673-8271-7508b7a82eaf"
+      },
+      "modified": 1564020536.3916318,
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "created": 1564020536.3916318,
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ]
+    },
+    "netslice-vld": [
+      {
+        "type": "ELAN",
+        "name": "slice_hackfest_vld_mgmt",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "mgmt-network": true,
+        "id": "slice_hackfest_vld_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "id": "slice_hackfest_vld_data",
+        "name": "slice_hackfest_vld_data"
+      }
+    ]
+  },
+  {
+    "_id": "d312d850-e54c-4673-8271-7508b7a82eaf",
+    "id": "slice_hackfest_nst",
+    "SNSSAI-identifier": {
+      "slice-service-type": "eMBB"
+    },
+    "name": "slice_hackfest_nst",
+    "netslice-subnet": [
+      {
+        "id": "slice_hackfest_nsd_1",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      },
+      {
+        "id": "slice_hackfest_nsd_2",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      }
+    ],
+    "quality-of-service": {
+      "id": 1
+    },
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "storage": {
+        "fs": "local",
+        "descriptor": "package",
+        "path": "/app/storage/",
+        "folder": "d312d850-e54c-4673-8271-7508b7a82eaf"
+      },
+      "modified": 1564020536.3916318,
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "created": 1564020536.3916318,
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ]
+    },
+    "netslice-vld": [
+      {
+        "type": "ELAN",
+        "name": "slice_hackfest_vld_mgmt",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "mgmt-network": true,
+        "id": "slice_hackfest_vld_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "id": "slice_hackfest_vld_data",
+        "name": "slice_hackfest_vld_data"
+      }
+    ]
+  },
+  {
+    "_id": "d312d850-e54c-4673-8271-7508b7a82eaf",
+    "id": "slice_hackfest_nst",
+    "SNSSAI-identifier": {
+      "slice-service-type": "eMBB"
+    },
+    "name": "slice_hackfest_nst",
+    "netslice-subnet": [
+      {
+        "id": "slice_hackfest_nsd_1",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      },
+      {
+        "id": "slice_hackfest_nsd_2",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      }
+    ],
+    "quality-of-service": {
+      "id": 1
+    },
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "storage": {
+        "fs": "local",
+        "descriptor": "package",
+        "path": "/app/storage/",
+        "folder": "d312d850-e54c-4673-8271-7508b7a82eaf"
+      },
+      "modified": 1564020536.3916318,
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "created": 1564020536.3916318,
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ]
+    },
+    "netslice-vld": [
+      {
+        "type": "ELAN",
+        "name": "slice_hackfest_vld_mgmt",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "mgmt-network": true,
+        "id": "slice_hackfest_vld_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "id": "slice_hackfest_vld_data",
+        "name": "slice_hackfest_vld_data"
+      }
+    ]
+  },
+  {
+    "_id": "d312d850-e54c-4673-8271-7508b7a82eaf",
+    "id": "slice_hackfest_nst",
+    "SNSSAI-identifier": {
+      "slice-service-type": "eMBB"
+    },
+    "name": "slice_hackfest_nst",
+    "netslice-subnet": [
+      {
+        "id": "slice_hackfest_nsd_1",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      },
+      {
+        "id": "slice_hackfest_nsd_2",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      }
+    ],
+    "quality-of-service": {
+      "id": 1
+    },
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "storage": {
+        "fs": "local",
+        "descriptor": "package",
+        "path": "/app/storage/",
+        "folder": "d312d850-e54c-4673-8271-7508b7a82eaf"
+      },
+      "modified": 1564020536.3916318,
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "created": 1564020536.3916318,
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ]
+    },
+    "netslice-vld": [
+      {
+        "type": "ELAN",
+        "name": "slice_hackfest_vld_mgmt",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "mgmt-network": true,
+        "id": "slice_hackfest_vld_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "id": "slice_hackfest_vld_data",
+        "name": "slice_hackfest_vld_data"
+      }
+    ]
+  },
+  {
+    "_id": "d312d850-e54c-4673-8271-7508b7a82eaf",
+    "id": "slice_hackfest_nst",
+    "SNSSAI-identifier": {
+      "slice-service-type": "eMBB"
+    },
+    "name": "slice_hackfest_nst",
+    "netslice-subnet": [
+      {
+        "id": "slice_hackfest_nsd_1",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      },
+      {
+        "id": "slice_hackfest_nsd_2",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      }
+    ],
+    "quality-of-service": {
+      "id": 1
+    },
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "storage": {
+        "fs": "local",
+        "descriptor": "package",
+        "path": "/app/storage/",
+        "folder": "d312d850-e54c-4673-8271-7508b7a82eaf"
+      },
+      "modified": 1564020536.3916318,
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "created": 1564020536.3916318,
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ]
+    },
+    "netslice-vld": [
+      {
+        "type": "ELAN",
+        "name": "slice_hackfest_vld_mgmt",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "mgmt-network": true,
+        "id": "slice_hackfest_vld_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "id": "slice_hackfest_vld_data",
+        "name": "slice_hackfest_vld_data"
+      }
+    ]
+  },
+  {
+    "_id": "d312d850-e54c-4673-8271-7508b7a82eaf",
+    "id": "slice_hackfest_nst",
+    "SNSSAI-identifier": {
+      "slice-service-type": "eMBB"
+    },
+    "name": "slice_hackfest_nst",
+    "netslice-subnet": [
+      {
+        "id": "slice_hackfest_nsd_1",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      },
+      {
+        "id": "slice_hackfest_nsd_2",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      }
+    ],
+    "quality-of-service": {
+      "id": 1
+    },
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "storage": {
+        "fs": "local",
+        "descriptor": "package",
+        "path": "/app/storage/",
+        "folder": "d312d850-e54c-4673-8271-7508b7a82eaf"
+      },
+      "modified": 1564020536.3916318,
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "created": 1564020536.3916318,
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ]
+    },
+    "netslice-vld": [
+      {
+        "type": "ELAN",
+        "name": "slice_hackfest_vld_mgmt",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "mgmt-network": true,
+        "id": "slice_hackfest_vld_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "id": "slice_hackfest_vld_data",
+        "name": "slice_hackfest_vld_data"
+      }
+    ]
+  },
+  {
+    "_id": "d312d850-e54c-4673-8271-7508b7a82eaf",
+    "id": "slice_hackfest_nst",
+    "SNSSAI-identifier": {
+      "slice-service-type": "eMBB"
+    },
+    "name": "slice_hackfest_nst",
+    "netslice-subnet": [
+      {
+        "id": "slice_hackfest_nsd_1",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      },
+      {
+        "id": "slice_hackfest_nsd_2",
+        "is-shared-nss": false,
+        "nsd-ref": "slice_hackfest_nsd",
+        "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)"
+      }
+    ],
+    "quality-of-service": {
+      "id": 1
+    },
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "storage": {
+        "fs": "local",
+        "descriptor": "package",
+        "path": "/app/storage/",
+        "folder": "d312d850-e54c-4673-8271-7508b7a82eaf"
+      },
+      "modified": 1564020536.3916318,
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "created": 1564020536.3916318,
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ]
+    },
+    "netslice-vld": [
+      {
+        "type": "ELAN",
+        "name": "slice_hackfest_vld_mgmt",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_mgmt",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "mgmt-network": true,
+        "id": "slice_hackfest_vld_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "nss-connection-point-ref": [
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_1"
+          },
+          {
+            "nsd-connection-point-ref": "nsd_cp_data",
+            "nss-ref": "slice_hackfest_nsd_2"
+          }
+        ],
+        "id": "slice_hackfest_vld_data",
+        "name": "slice_hackfest_vld_data"
+      }
+    ]
+  }
+]

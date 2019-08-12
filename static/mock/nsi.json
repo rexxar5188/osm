@@ -1,0 +1,188 @@
+[
+  {
+    "instantiation_parameters": {
+      "nsiDescription": "1",
+      "nsiName": "aaa",
+      "vimAccountId": "3093eea6-dca3-4274-ac60-d2171273f28b",
+      "nstId": "b810211f-a74d-4053-96c6-f0b03964e0ce",
+      "ssh_keys": ""
+    },
+    "detailed-status": "ERROR Network Slice Instance is ready. nsi_id=bdad8d90-0b3e-4034-9478-e1ca6c82d587: Error deploying NSI: bdad8d90-0b3e-4034-9478-e1ca6c82d587",
+    "nsr-ref-list": [
+      {
+        "nsr-ref": "e819fe52-dfc4-48d1-bd84-f23666586063"
+      },
+      {
+        "nsr-ref": "7566292a-1140-4f56-a8a7-6bd58493d17d"
+      }
+    ],
+    "datacenter": "3093eea6-dca3-4274-ac60-d2171273f28b",
+    "network-slice-template": {
+      "name": "slice_hackfest_nst",
+      "netslice-vld": [
+        {
+          "type": "ELAN",
+          "name": "slice_hackfest_vld_mgmt",
+          "mgmt-network": true,
+          "id": "slice_hackfest_vld_mgmt",
+          "nss-connection-point-ref": [
+            {
+              "nss-ref": "slice_hackfest_nsd_1",
+              "nsd-connection-point-ref": "nsd_cp_mgmt"
+            },
+            {
+              "nss-ref": "slice_hackfest_nsd_2",
+              "nsd-connection-point-ref": "nsd_cp_mgmt"
+            }
+          ]
+        },
+        {
+          "type": "ELAN",
+          "name": "slice_hackfest_vld_data",
+          "id": "slice_hackfest_vld_data",
+          "nss-connection-point-ref": [
+            {
+              "nss-ref": "slice_hackfest_nsd_1",
+              "nsd-connection-point-ref": "nsd_cp_data"
+            },
+            {
+              "nss-ref": "slice_hackfest_nsd_2",
+              "nsd-connection-point-ref": "nsd_cp_data"
+            }
+          ]
+        }
+      ],
+      "netslice-subnet": [
+        {
+          "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)",
+          "nsd-ref": "slice_hackfest_nsd",
+          "is-shared-nss": false,
+          "id": "slice_hackfest_nsd_1",
+          "_id": "d9419abd-2807-4b33-a961-d45f3fc26e4f"
+        },
+        {
+          "description": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)",
+          "nsd-ref": "slice_hackfest_nsd",
+          "is-shared-nss": false,
+          "id": "slice_hackfest_nsd_2",
+          "_id": "d9419abd-2807-4b33-a961-d45f3fc26e4f"
+        }
+      ],
+      "SNSSAI-identifier": {
+        "slice-service-type": "eMBB"
+      },
+      "quality-of-service": {
+        "id": 1
+      },
+      "id": "slice_hackfest_nst"
+    },
+    "id": "bdad8d90-0b3e-4034-9478-e1ca6c82d587",
+    "name": "aaa",
+    "_id": "bdad8d90-0b3e-4034-9478-e1ca6c82d587",
+    "description": "1",
+    "operational-status": "failed",
+    "nst-ref": "slice_hackfest_nst",
+    "additionalParamsForNsi": null,
+    "vlr-list": [],
+    "_admin": {
+      "created": 1565070822.9057615,
+      "projects_write": [
+        "19085e2b-0b92-47d0-bff8-2c5bc026458c"
+      ],
+      "netslice-vld": [
+        {
+          "name": "slice_hackfest_vld_mgmt",
+          "mgmt-network": true,
+          "nss-connection-point-ref": [
+            {
+              "nss-ref": "slice_hackfest_nsd_1",
+              "nsd-connection-point-ref": "nsd_cp_mgmt"
+            },
+            {
+              "nss-ref": "slice_hackfest_nsd_2",
+              "nsd-connection-point-ref": "nsd_cp_mgmt"
+            }
+          ],
+          "type": "ELAN",
+          "id": "slice_hackfest_vld_mgmt",
+          "vimAccountId": "3093eea6-dca3-4274-ac60-d2171273f28b",
+          "shared-nsrs-list": []
+        },
+        {
+          "name": "slice_hackfest_vld_data",
+          "nss-connection-point-ref": [
+            {
+              "nss-ref": "slice_hackfest_nsd_1",
+              "nsd-connection-point-ref": "nsd_cp_data"
+            },
+            {
+              "nss-ref": "slice_hackfest_nsd_2",
+              "nsd-connection-point-ref": "nsd_cp_data"
+            }
+          ],
+          "type": "ELAN",
+          "id": "slice_hackfest_vld_data",
+          "vimAccountId": "3093eea6-dca3-4274-ac60-d2171273f28b",
+          "shared-nsrs-list": []
+        }
+      ],
+      "netslice-subnet": [
+        {
+          "nss-id": "slice_hackfest_nsd_1",
+          "nsdId": "d9419abd-2807-4b33-a961-d45f3fc26e4f",
+          "nsName": "aaa.slice_hackfest_nsd_1",
+          "nsDescription": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)",
+          "vimAccountId": "3093eea6-dca3-4274-ac60-d2171273f28b",
+          "nsr_id": "e819fe52-dfc4-48d1-bd84-f23666586063"
+        },
+        {
+          "nss-id": "slice_hackfest_nsd_2",
+          "nsdId": "d9419abd-2807-4b33-a961-d45f3fc26e4f",
+          "nsName": "aaa.slice_hackfest_nsd_2",
+          "nsDescription": "NetSlice Subnet (service) composed by 2 vnfs and 4 cp (2 mgmt and 2 data)",
+          "vimAccountId": "3093eea6-dca3-4274-ac60-d2171273f28b",
+          "nsr_id": "7566292a-1140-4f56-a8a7-6bd58493d17d"
+        }
+      ],
+      "nsiState": "INSTANTIATED",
+      "deployed": {
+        "RO": [
+          {
+            "vld_id": "slice_hackfest_vld_mgmt",
+            "netslice_scenario_id": "9da71af4-18a9-4a52-b312-febc9ea59cd8"
+          },
+          {
+            "vld_id": "slice_hackfest_vld_data",
+            "netslice_scenario_id": "d5d2b0ac-ccf3-4704-8a76-ba2a13f81b38"
+          }
+        ]
+      },
+      "nsilcmop": null,
+      "nsrs-detailed-list": [
+        {
+          "nslcmop_instantiate": "3ef9e11c-cd40-4e6d-9b24-7b7b90fd1577",
+          "instantiated": true,
+          "detailed-status": " Waiting nsi ready. nsi_id=bdad8d90-0b3e-4034-9478-e1ca6c82d587; FAILED Creating ns at RO: b\"---\\nerror:\\n    code: 400\\n    description: 'VIM Exception vimconnException Image not found at VIM with filter:\\n        ''{''name'': ''US1604''}''. (True, '' Rollback successful.'')'\\n    type: 400 Bad Request\\n\"",
+          "nsrId": "e819fe52-dfc4-48d1-bd84-f23666586063",
+          "nsd-id": "slice_hackfest_nsd",
+          "status": "FAILED",
+          "shared": false
+        },
+        {
+          "nslcmop_instantiate": "3830b7c8-6517-4c6d-b0eb-5e51b7792f14",
+          "instantiated": true,
+          "detailed-status": " Waiting nsi ready. nsi_id=bdad8d90-0b3e-4034-9478-e1ca6c82d587; FAILED Creating ns at RO: b\"---\\nerror:\\n    code: 400\\n    description: 'VIM Exception vimconnException Image not found at VIM with filter:\\n        ''{''name'': ''US1604''}''. (True, '' Rollback successful.'')'\\n    type: 400 Bad Request\\n\"",
+          "nsrId": "7566292a-1140-4f56-a8a7-6bd58493d17d",
+          "nsd-id": "slice_hackfest_nsd",
+          "status": "FAILED",
+          "shared": false
+        }
+      ],
+      "modified": 1565070822.9057615,
+      "projects_read": [
+        "19085e2b-0b92-47d0-bff8-2c5bc026458c"
+      ],
+      "nst-id": "b810211f-a74d-4053-96c6-f0b03964e0ce"
+    }
+  }
+]

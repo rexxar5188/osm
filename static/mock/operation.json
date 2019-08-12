@@ -1,0 +1,37 @@
+[
+  {
+    "lcmOperationType": "instantiate",
+    "links": {
+      "nsInstance": "/osm/nslcm/v1/ns_instances/5ac45d10-150c-4f1a-9825-62a721beca06",
+      "self": "/osm/nslcm/v1/ns_lcm_op_occs/e9690797-f586-46d1-bbad-07f0d8590a11"
+    },
+    "isCancelPending": false,
+    "operationParams": {
+      "lcmOperationType": "instantiate",
+      "nsInstanceId": "5ac45d10-150c-4f1a-9825-62a721beca06",
+      "nsdId": "87cfe245-50ad-4034-a16c-bcf29e2e57a8",
+      "nsName": "111",
+      "nsDescription": "111",
+      "nsr_id": "5ac45d10-150c-4f1a-9825-62a721beca06",
+      "vimAccountId": "2094f61b-a20c-406e-a99b-43b7893eee80"
+    },
+    "nsInstanceId": "5ac45d10-150c-4f1a-9825-62a721beca06",
+    "statusEnteredTime": 1564645986.1738112,
+    "operationState": "FAILED",
+    "_admin": {
+      "projects_write": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "projects_read": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "modified": 1564645532.055414,
+      "created": 1564645532.055414
+    },
+    "startTime": 1564645532.0553792,
+    "isAutomaticInvocation": false,
+    "_id": "e9690797-f586-46d1-bbad-07f0d8590a11",
+    "detailed-status": "FAILED Creating ns at RO: b\"---\\nerror:\\n    code: 404\\n    description: datacenter '69ab6fb0-b33b-11e9-9d38-02420aff0084' not found\\n    type: 404 Not Found\\n\"",
+    "id": "e9690797-f586-46d1-bbad-07f0d8590a11"
+  }
+]

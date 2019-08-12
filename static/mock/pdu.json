@@ -1,0 +1,76 @@
+[
+  {
+    "description": null,
+    "interfaces": [
+      {
+        "vim-network-name": "public",
+        "name": "eth0",
+        "ip-address": "172.21.6.253",
+        "mgmt": true
+      },
+      {
+        "vim-network-name": "vnf-network03",
+        "name": "eth1",
+        "ip-address": "10.0.0.1",
+        "mgmt": false
+      }
+    ],
+    "vim_accounts": [
+      "2094f61b-a20c-406e-a99b-43b7893eee80"
+    ],
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "created": 1564630716.5112143,
+      "modified": 1564630716.5112143,
+      "projects_write": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "projects_read": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "usage": null,
+      "onboardingState": "CREATED",
+      "operationalState": "ENABLED"
+    },
+    "_id": "0410aae0-660a-4a14-9c75-a8bada46fed1",
+    "type": "gateway",
+    "name": "RT2"
+  },
+  {
+    "description": null,
+    "interfaces": [
+      {
+        "vim-network-name": "public",
+        "name": "eth0",
+        "ip-address": "172.21.6.253",
+        "mgmt": true
+      },
+      {
+        "vim-network-name": "vnf-network03",
+        "name": "eth1",
+        "ip-address": "10.0.0.1",
+        "mgmt": false
+      }
+    ],
+    "vim_accounts": [
+      "e3650643-7d29-4bc8-b9ef-5c576098b6aa"
+    ],
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "created": 1564651544.7772412,
+      "modified": 1564651544.7772412,
+      "projects_write": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "projects_read": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "usage": null,
+      "onboardingState": "CREATED",
+      "operationalState": "ENABLED"
+    },
+    "_id": "a2c6aca9-4be0-4d06-a925-48ead14e3490",
+    "type": "gateway",
+    "name": "RT1"
+  }
+]

@@ -1,0 +1,367 @@
+[
+  {
+    "vnfd-id": "895eb1ff-da1a-4e3d-950b-a72c01227d43",
+    "additionalParamsForVnf": {
+      "dest_ip": "10.0.0.100"
+    },
+    "vdur": [
+      {
+        "pdu-id": "a2c6aca9-4be0-4d06-a925-48ead14e3490",
+        "internal-connection-point": [],
+        "interfaces": [
+          {
+            "ns-vld-id": "public_vld",
+            "ip-address": "172.21.6.253",
+            "mgmt-vnf": true,
+            "name": "eth0"
+          }
+        ],
+        "vdu-id-ref": "gateway_pdu",
+        "pdu-type": "gateway",
+        "count-index": 0,
+        "ip-address": null,
+        "_id": "1b239e96-199d-4194-86b3-3ace07173935"
+      }
+    ],
+    "vim-account-id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "id": "100521ff-a398-49a6-b94d-9ce63b2720f1",
+    "_admin": {
+      "projects_write": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "projects_read": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "modified": 1564654073.3184328,
+      "created": 1564654073.3184328
+    },
+    "ip-address": "172.21.6.253",
+    "nsr-id-ref": "a028c992-55c5-4a0e-859a-6568cdaf1f36",
+    "vnfd-ref": "vyos_pnf_charmed",
+    "_id": "100521ff-a398-49a6-b94d-9ce63b2720f1",
+    "member-vnf-index-ref": "2",
+    "connection-point": [
+      {
+        "connection-point-id": null,
+        "name": "gateway_public",
+        "id": null
+      }
+    ],
+    "created-time": 1564654073.3063416
+  },
+  {
+  "vnfd-id": "3815cb70-b25d-48f8-9a60-bc9f291e4e8c",
+  "additionalParamsForVnf": null,
+  "vdur": [
+    {
+      "internal-connection-point": [],
+      "interfaces": [
+        {
+          "ns-vld-id": "nsd_vnfd_vld_mgmt",
+          "name": "eth0",
+          "mgmt-vnf": true
+        },
+        {
+          "ns-vld-id": "nsd_vnfd_vld_data",
+          "name": "eth1"
+        }
+      ],
+      "vdu-id-ref": "slice_hackfest_vnfd-VM",
+      "count-index": 0,
+      "ip-address": null,
+      "_id": "a9e61bde-d8f2-4e2c-b3c2-00e5d0f8af9b"
+    }
+  ],
+  "vim-account-id": "2094f61b-a20c-406e-a99b-43b7893eee80",
+  "id": "230d281a-6543-4482-a0d7-095c0d6a35b9",
+  "_admin": {
+    "projects_write": [
+      "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+    ],
+    "projects_read": [
+      "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+    ],
+    "modified": 1564649844.5868196,
+    "created": 1564649844.5868196
+  },
+  "ip-address": null,
+  "nsr-id-ref": "31ab2899-e92e-489a-b9e8-83c5d1d19b9f",
+  "vnfd-ref": "slice_hackfest_vnfd",
+  "_id": "230d281a-6543-4482-a0d7-095c0d6a35b9",
+  "member-vnf-index-ref": "2",
+  "connection-point": [
+    {
+      "connection-point-id": null,
+      "name": "eth0",
+      "id": null
+    },
+    {
+      "connection-point-id": null,
+      "name": "eth1",
+      "id": null
+    }
+  ],
+  "created-time": 1564649844.583421
+},
+  {
+    "vnfd-id": "bdeaba31-2f8a-490c-8eef-5d5c2b1b9f1e",
+    "additionalParamsForVnf": null,
+    "vdur": [
+      {
+        "internal-connection-point": [
+          {
+            "connection-point-id": "haproxy_private",
+            "name": "haproxy_private",
+            "id": "haproxy_private"
+          }
+        ],
+        "interfaces": [
+          {
+            "ns-vld-id": "public_vld",
+            "name": "haproxy_vdu_eth1"
+          },
+          {
+            "mgmt-interface": true,
+            "ns-vld-id": "mgmt_vld",
+            "name": "haproxy_vdu_eth0",
+            "mgmt-vnf": true
+          },
+          {
+            "vnf-vld-id": "internal_services",
+            "name": "haproxy_vdu_eth2"
+          }
+        ],
+        "vdu-id-ref": "haproxy_vdu",
+        "count-index": 0,
+        "ip-address": null,
+        "_id": "bc8d873a-281d-4da0-a8da-a26bacb9313f"
+      },
+      {
+        "internal-connection-point": [
+          {
+            "connection-point-id": "apache_service",
+            "name": "apache_service",
+            "id": "apache_service"
+          }
+        ],
+        "interfaces": [
+          {
+            "mgmt-interface": true,
+            "ns-vld-id": "mgmt_vld",
+            "name": "apache_vdu_eth0"
+          },
+          {
+            "vnf-vld-id": "internal_services",
+            "name": "apache_vdu_eth1"
+          }
+        ],
+        "vdu-id-ref": "apache_vdu",
+        "count-index": 0,
+        "ip-address": null,
+        "_id": "f7a68c9f-f63a-4429-a59b-5fef9ca9b8ba"
+      }
+    ],
+    "vim-account-id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "vld": [
+      {
+        "id": "internal_services"
+      }
+    ],
+    "id": "367033ba-c1bd-42b3-b1ee-1bd6762efc54",
+    "_admin": {
+      "projects_write": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "projects_read": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "modified": 1564654073.3099952,
+      "created": 1564654073.3099952
+    },
+    "ip-address": null,
+    "nsr-id-ref": "a028c992-55c5-4a0e-859a-6568cdaf1f36",
+    "vnfd-ref": "webserver_vimmetric_autoscale_vnf",
+    "_id": "367033ba-c1bd-42b3-b1ee-1bd6762efc54",
+    "member-vnf-index-ref": "1",
+    "connection-point": [
+      {
+        "connection-point-id": null,
+        "name": "haproxy_mgmt",
+        "id": null
+      },
+      {
+        "connection-point-id": null,
+        "name": "haproxy_public",
+        "id": null
+      },
+      {
+        "connection-point-id": null,
+        "name": "apache_mgmt",
+        "id": null
+      }
+    ],
+    "created-time": 1564654073.3063416
+  },
+  {
+    "vnfd-id": "3815cb70-b25d-48f8-9a60-bc9f291e4e8c",
+    "additionalParamsForVnf": null,
+    "vdur": [
+      {
+        "internal-connection-point": [],
+        "interfaces": [
+          {
+            "ns-vld-id": "nsd_vnfd_vld_mgmt",
+            "name": "eth0",
+            "mgmt-vnf": true
+          },
+          {
+            "ns-vld-id": "nsd_vnfd_vld_data",
+            "name": "eth1"
+          }
+        ],
+        "vdu-id-ref": "slice_hackfest_vnfd-VM",
+        "count-index": 0,
+        "ip-address": null,
+        "_id": "5a52ce56-3cfa-4989-8c28-96f4ea04b2e7"
+      }
+    ],
+    "vim-account-id": "2094f61b-a20c-406e-a99b-43b7893eee80",
+    "id": "4fca891a-bc50-4c48-8b83-47390b975f62",
+    "_admin": {
+      "projects_write": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "projects_read": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "modified": 1564649844.5718732,
+      "created": 1564649844.5718732
+    },
+    "ip-address": null,
+    "nsr-id-ref": "3afa1c1e-4d8d-41c6-8c2e-7d226c9bf260",
+    "vnfd-ref": "slice_hackfest_vnfd",
+    "_id": "4fca891a-bc50-4c48-8b83-47390b975f62",
+    "member-vnf-index-ref": "2",
+    "connection-point": [
+      {
+        "connection-point-id": null,
+        "name": "eth0",
+        "id": null
+      },
+      {
+        "connection-point-id": null,
+        "name": "eth1",
+        "id": null
+      }
+    ],
+    "created-time": 1564649844.5685654
+  },
+  {
+    "vnfd-id": "3815cb70-b25d-48f8-9a60-bc9f291e4e8c",
+    "additionalParamsForVnf": null,
+    "vdur": [
+      {
+        "internal-connection-point": [],
+        "interfaces": [
+          {
+            "ns-vld-id": "nsd_vnfd_vld_mgmt",
+            "name": "eth0",
+            "mgmt-vnf": true
+          },
+          {
+            "ns-vld-id": "nsd_vnfd_vld_data",
+            "name": "eth1"
+          }
+        ],
+        "vdu-id-ref": "slice_hackfest_vnfd-VM",
+        "count-index": 0,
+        "ip-address": null,
+        "_id": "8592202f-14ef-41b1-9e57-6c1bebb2e49a"
+      }
+    ],
+    "vim-account-id": "2094f61b-a20c-406e-a99b-43b7893eee80",
+    "id": "820140b0-12c0-4947-9fae-6f0df5da3325",
+    "_admin": {
+      "projects_write": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "projects_read": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "modified": 1564649844.5709622,
+      "created": 1564649844.5709622
+    },
+    "ip-address": null,
+    "nsr-id-ref": "3afa1c1e-4d8d-41c6-8c2e-7d226c9bf260",
+    "vnfd-ref": "slice_hackfest_vnfd",
+    "_id": "820140b0-12c0-4947-9fae-6f0df5da3325",
+    "member-vnf-index-ref": "1",
+    "connection-point": [
+      {
+        "connection-point-id": null,
+        "name": "eth0",
+        "id": null
+      },
+      {
+        "connection-point-id": null,
+        "name": "eth1",
+        "id": null
+      }
+    ],
+    "created-time": 1564649844.5685654
+  },
+  {
+    "vnfd-id": "3815cb70-b25d-48f8-9a60-bc9f291e4e8c",
+    "additionalParamsForVnf": null,
+    "vdur": [
+      {
+        "internal-connection-point": [],
+        "interfaces": [
+          {
+            "ns-vld-id": "nsd_vnfd_vld_mgmt",
+            "name": "eth0",
+            "mgmt-vnf": true
+          },
+          {
+            "ns-vld-id": "nsd_vnfd_vld_data",
+            "name": "eth1"
+          }
+        ],
+        "vdu-id-ref": "slice_hackfest_vnfd-VM",
+        "count-index": 0,
+        "ip-address": null,
+        "_id": "2d28d6c8-20f2-4cfd-8f32-ab7e6b010bda"
+      }
+    ],
+    "vim-account-id": "2094f61b-a20c-406e-a99b-43b7893eee80",
+    "id": "87519ab6-7eb5-49b3-9249-7bacd57c227e",
+    "_admin": {
+      "projects_write": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "projects_read": [
+        "b10e0acf-0e83-4ccf-97b9-745d2bc574e5"
+      ],
+      "modified": 1564649844.5860026,
+      "created": 1564649844.5860026
+    },
+    "ip-address": null,
+    "nsr-id-ref": "31ab2899-e92e-489a-b9e8-83c5d1d19b9f",
+    "vnfd-ref": "slice_hackfest_vnfd",
+    "_id": "87519ab6-7eb5-49b3-9249-7bacd57c227e",
+    "member-vnf-index-ref": "1",
+    "connection-point": [
+      {
+        "connection-point-id": null,
+        "name": "eth0",
+        "id": null
+      },
+      {
+        "connection-point-id": null,
+        "name": "eth1",
+        "id": null
+      }
+    ],
+    "created-time": 1564649844.583421
+  }
+]

@@ -1,0 +1,542 @@
+[
+  {
+    "version": "1.0",
+    "vld": [
+      {
+        "type": "ELAN",
+        "name": "cirros_nsd_vld1",
+        "mgmt-network": true,
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "eth0",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "cirros_vdu_alarm_vnf"
+          }
+        ],
+        "id": "cirros_nsd_vld1",
+        "vim-network-name": "public"
+      }
+    ],
+    "vendor": "OSM",
+    "name": "cirros_vdu_alarm_ns",
+    "description": "Simple NS example with a cirros_vdu_alarm_vnf",
+    "constituent-vnfd": [
+      {
+        "member-vnf-index": "1",
+        "vnfd-id-ref": "cirros_vdu_alarm_vnf"
+      }
+    ],
+    "_id": "aea4b60a-3fde-4719-bb2d-1bb836458b3e",
+    "short-name": "cirros_vdu_alarm_ns",
+    "id": "cirros_vdu_alarm_ns",
+    "_admin": {
+      "created": 1561707565.6468546,
+      "storage": {
+        "zipfile": "package.tar.gz",
+        "fs": "local",
+        "path": "/app/storage/",
+        "pkg-dir": "cirros_nsd",
+        "descriptor": "cirros_nsd/cirros_vdu_alarm_nsd.yaml",
+        "folder": "aea4b60a-3fde-4719-bb2d-1bb836458b3e"
+      },
+      "projects_read": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "modified": 1561707565.6468546
+    },
+    "logo": "osm.png"
+  },
+  {
+    "version": "1.0",
+    "name": "hackfest_proxycharm-ns",
+    "logo": "osm.png",
+    "constituent-vnfd": [
+      {
+        "member-vnf-index": "1",
+        "vnfd-id-ref": "hackfest_proxycharm-vnf"
+      },
+      {
+        "member-vnf-index": "2",
+        "vnfd-id-ref": "hackfest_proxycharm-vnf"
+      }
+    ],
+    "_id": "f00e04c3-55ba-4d5f-be75-b0bd847e9826",
+    "short-name": "hackfest_proxycharm-ns",
+    "vld": [
+      {
+        "id": "mgmtnet",
+        "name": "mgmtnet",
+        "mgmt-network": true,
+        "short-name": "mgmtnet",
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "vnf-network",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "hackfest_proxycharm-vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "vnf-network",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "hackfest_proxycharm-vnf"
+          }
+        ],
+        "type": "ELAN",
+        "vim-network-name": "public"
+      },
+      {
+        "id": "datanet",
+        "short-name": "datanet",
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "PUBLIC",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "hackfest_proxycharm-vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "PUBLIC",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "hackfest_proxycharm-vnf"
+          }
+        ],
+        "type": "ELAN",
+        "name": "datanet"
+      }
+    ],
+    "id": "hackfest_proxycharm-ns",
+    "_admin": {
+      "projects_read": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "modified": 1562572505.6255836,
+      "created": 1562572505.6255836,
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "storage": {
+        "folder": "f00e04c3-55ba-4d5f-be75-b0bd847e9826",
+        "fs": "local",
+        "path": "/app/storage/",
+        "pkg-dir": "hackfest_proxycharm_ns",
+        "descriptor": "hackfest_proxycharm_ns/hackfest_simplecharm_nsd.yaml",
+        "zipfile": "package.tar.gz"
+      }
+    },
+    "description": "NS with 2 VNFs with cloudinit connected by datanet and mgmtnet VLs"
+  },
+  {
+    "version": "1.0",
+    "constituent-vnfd": [
+      {
+        "member-vnf-index": "1",
+        "vnfd-id-ref": "webserver_vimmetric_autoscale_vnf"
+      },
+      {
+        "member-vnf-index": "2",
+        "vnfd-id-ref": "vyos_pnf_charmed"
+      }
+    ],
+    "vendor": "Whitestack",
+    "name": "hybrid_lbwebvnf_gwpnf_ns",
+    "_id": "71e2b0da-f4b6-43cd-b828-54f7895ada18",
+    "short-name": "hybrid_lbwebvnf_gwpnf_ns",
+    "vld": [
+      {
+        "id": "public_vld",
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "haproxy_public",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "webserver_vimmetric_autoscale_vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "public",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "vyos_pnf_charmed"
+          }
+        ],
+        "type": "ELAN",
+        "name": "public_vld",
+        "vim-network-name": "vnf-network03"
+      },
+      {
+        "type": "ELAN",
+        "name": "mgmt_vld",
+        "mgmt-network": true,
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "haproxy_mgmt",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "webserver_vimmetric_autoscale_vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "apache_mgmt",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "webserver_vimmetric_autoscale_vnf"
+          }
+        ],
+        "id": "mgmt_vld",
+        "vim-network-name": ""
+      }
+    ],
+    "id": "hybrid_lbwebvnf_gwpnf_ns",
+    "_admin": {
+      "created": 1562911781.1797037,
+      "storage": {
+        "folder": "71e2b0da-f4b6-43cd-b828-54f7895ada18",
+        "fs": "local",
+        "path": "/app/storage/",
+        "pkg-dir": "hybrid_lbwebvnf_gwpnf_nsd",
+        "descriptor": "hybrid_lbwebvnf_gwpnf_nsd/hybrid_lbwebvnf_gwpnf_nsd.yaml",
+        "zipfile": "package.tar.gz"
+      },
+      "projects_read": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "modified": 1562911781.1797037
+    },
+    "description": "Scaling web server with load balancer NS"
+  },
+  {
+    "version": "1.0",
+    "constituent-vnfd": [
+      {
+        "member-vnf-index": "1",
+        "vnfd-id-ref": "vyos_vnf"
+      },
+      {
+        "member-vnf-index": "2",
+        "vnfd-id-ref": "webserver_vimmetric_autoscale_vnf"
+      }
+    ],
+    "vendor": "OSM Composer",
+    "name": "vyos_ns",
+    "_id": "87e30f42-8258-45a1-84ff-928a403f16e6",
+    "short-name": "vyos_ns",
+    "vld": [
+      {
+        "type": "ELAN",
+        "name": "public_vld",
+        "mgmt-network": true,
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "PUBLIC",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "vyos_vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "haproxy_public",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "webserver_vimmetric_autoscale_vnf"
+          }
+        ],
+        "id": "public_vld",
+        "vim-network-name": "public"
+      },
+      {
+        "type": "ELAN",
+        "name": "mgmt",
+        "mgmt-network": true,
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "vyos_mgmt",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "vyos_vnf"
+          }
+        ],
+        "id": "mgmt",
+        "vim-network-name": "vyos_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "name": "mgmt_vld",
+        "mgmt-network": true,
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "haproxy_mgmt",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "webserver_vimmetric_autoscale_vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "apache_mgmt",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "webserver_vimmetric_autoscale_vnf"
+          }
+        ],
+        "id": "mgmt_vld",
+        "vim-network-name": "vnf-network03"
+      }
+    ],
+    "id": "vyos_ns",
+    "_admin": {
+      "projects_read": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "modified": 1563246095.5195456,
+      "created": 1563246095.5195456,
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "storage": {
+        "zipfile": "package.tar.gz",
+        "fs": "local",
+        "path": "/app/storage/",
+        "pkg-dir": "vyos_ns",
+        "descriptor": "vyos_ns/vyos_ns.yaml",
+        "folder": "87e30f42-8258-45a1-84ff-928a403f16e6"
+      }
+    },
+    "description": "vyos_ns descriptor"
+  },
+  {
+    "constituent-vnfd": [
+      {
+        "member-vnf-index": "1",
+        "vnfd-id-ref": "slice_hackfest_vnfd"
+      },
+      {
+        "member-vnf-index": "2",
+        "vnfd-id-ref": "slice_hackfest_vnfd"
+      }
+    ],
+    "connection-point": [
+      {
+        "vld-id-ref": "nsd_vnfd_vld_mgmt",
+        "name": "nsd_cp_mgmt"
+      },
+      {
+        "vld-id-ref": "nsd_vnfd_vld_data",
+        "name": "nsd_cp_data"
+      }
+    ],
+    "_id": "478acc31-b23c-4437-bd97-50d237b9efa3",
+    "id": "slice_hackfest_nsd",
+    "_admin": {
+      "created": 1563883201.0617318,
+      "storage": {
+        "zipfile": "package.tar.gz",
+        "fs": "local",
+        "path": "/app/storage/",
+        "pkg-dir": "slice_hackfest_nsd",
+        "descriptor": "slice_hackfest_nsd/slice_hackfest_nsd.yaml",
+        "folder": "478acc31-b23c-4437-bd97-50d237b9efa3"
+      },
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "modified": 1563883201.0617318
+    },
+    "description": "NetServiceDescriptor with 2 vnfs and 2 vld (mgmt and data networks)",
+    "vld": [
+      {
+        "type": "ELAN",
+        "name": "nsd_vnfd_vld_mgmt",
+        "mgmt-network": true,
+        "short-name": "nsd_vnfd_vld_mgmt",
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "eth0",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "slice_hackfest_vnfd"
+          },
+          {
+            "vnfd-connection-point-ref": "eth0",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "slice_hackfest_vnfd"
+          }
+        ],
+        "id": "nsd_vnfd_vld_mgmt"
+      },
+      {
+        "type": "ELAN",
+        "name": "nsd_vnfd_vld_data",
+        "mgmt-network": false,
+        "short-name": "nsd_vnfd_vld_data",
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "eth1",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "slice_hackfest_vnfd"
+          },
+          {
+            "vnfd-connection-point-ref": "eth1",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "slice_hackfest_vnfd"
+          }
+        ],
+        "id": "nsd_vnfd_vld_data"
+      }
+    ],
+    "vendor": "OSM",
+    "name": "slice_hackfest_nsd",
+    "version": "1.0",
+    "short-name": "slice_hackfest_ns",
+    "logo": "osm_2x.png"
+  },
+  {
+    "constituent-vnfd": [
+      {
+        "member-vnf-index": "1",
+        "vnfd-id-ref": "hackfest_sfc_vnf"
+      },
+      {
+        "member-vnf-index": "2",
+        "vnfd-id-ref": "hackfest_sfc_vnf"
+      },
+      {
+        "member-vnf-index": "3",
+        "vnfd-id-ref": "hackfest_sfc_vnf"
+      }
+    ],
+    "_id": "fc8c1c95-648e-429d-beba-3163c8de0ce6",
+    "id": "hackfest_sfc_ns",
+    "_admin": {
+      "created": 1564451997.0766802,
+      "storage": {
+        "zipfile": "package.tar.gz",
+        "fs": "local",
+        "path": "/app/storage/",
+        "pkg-dir": "hackfest_sfc_ns",
+        "descriptor": "hackfest_sfc_ns/hackfest_sfc_nsd.yaml",
+        "folder": "fc8c1c95-648e-429d-beba-3163c8de0ce6"
+      },
+      "projects_read": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "usageState": "NOT_IN_USE",
+      "onboardingState": "ONBOARDED",
+      "projects_write": [
+        "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+      ],
+      "userDefinedData": {},
+      "operationalState": "ENABLED",
+      "modified": 1564451997.0766802
+    },
+    "description": "3 vnfs, each one with a ubuntu vdu, with 1 vnffg connecting the vnfs",
+    "vld": [
+      {
+        "id": "vld1",
+        "name": "vld1-name",
+        "short-name": "vld1-sname",
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "eth0",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "hackfest_sfc_vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "eth0",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "hackfest_sfc_vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "eth0",
+            "member-vnf-index-ref": "3",
+            "vnfd-id-ref": "hackfest_sfc_vnf"
+          }
+        ],
+        "type": "ELAN",
+        "ip-profile-ref": "ipprofileA"
+      }
+    ],
+    "vendor": "OSM",
+    "name": "hackfest_sfc_ns",
+    "version": "1.0",
+    "short-name": "hackfest_sfc_ns",
+    "vnffgd": [
+      {
+        "rsp": [
+          {
+            "vnfd-connection-point-ref": [
+              {
+                "vnfd-ingress-connection-point-ref": "eth0",
+                "member-vnf-index-ref": "2",
+                "vnfd-egress-connection-point-ref": "eth0",
+                "vnfd-id-ref": "hackfest_sfc_vnf",
+                "order": 0
+              },
+              {
+                "vnfd-ingress-connection-point-ref": "eth0",
+                "member-vnf-index-ref": "3",
+                "vnfd-egress-connection-point-ref": "eth0",
+                "vnfd-id-ref": "hackfest_sfc_vnf",
+                "order": 1
+              }
+            ],
+            "id": "rsp1",
+            "name": "rsp1-name"
+          }
+        ],
+        "classifier": [
+          {
+            "vnfd-connection-point-ref": "eth0",
+            "rsp-id-ref": "rsp1",
+            "name": "class1-name",
+            "member-vnf-index-ref": "1",
+            "match-attributes": [
+              {
+                "source-port": 0,
+                "ip-proto": 6,
+                "destination-ip-address": "10.0.0.2",
+                "source-ip-address": "10.0.0.1",
+                "id": "match1",
+                "destination-port": 80
+              },
+              {
+                "source-port": 0,
+                "ip-proto": 6,
+                "destination-ip-address": "10.0.0.3",
+                "source-ip-address": "10.0.0.1",
+                "id": "match2",
+                "destination-port": 80
+              }
+            ],
+            "id": "class1",
+            "vnfd-id-ref": "hackfest_sfc_vnf"
+          }
+        ],
+        "vendor": "vnffg1-vendor",
+        "name": "vnffg1-name",
+        "version": "1.0",
+        "short-name": "vnffg1-sname",
+        "id": "vnffg1",
+        "description": "vnffg1-description"
+      }
+    ],
+    "ip-profiles": [
+      {
+        "name": "ipprofileA",
+        "ip-profile-params": {
+          "dhcp-params": {
+            "start-address": "31.31.31.2",
+            "count": 200
+          },
+          "gateway-address": "31.31.31.210",
+          "dns-server": [
+            {
+              "address": "8.8.8.8"
+            },
+            {
+              "address": "8.8.8.9"
+            }
+          ],
+          "subnet-address": "31.31.31.0/24"
+        },
+        "description": "Inter VNF Link"
+      }
+    ],
+    "logo": "osm.png"
+  }
+]

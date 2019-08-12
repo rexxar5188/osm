@@ -1,0 +1,167 @@
+[{
+  "nsd": {
+    "short-name": "hackfest_proxycharm-ns",
+    "name": "hackfest_proxycharm-ns",
+    "vld": [
+      {
+        "short-name": "mgmtnet",
+        "name": "mgmtnet",
+        "mgmt-network": true,
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "vnf-network",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "hackfest_proxycharm-vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "vnf-network",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "hackfest_proxycharm-vnf"
+          }
+        ],
+        "vim-network-name": "public",
+        "type": "ELAN",
+        "id": "mgmtnet"
+      },
+      {
+        "short-name": "datanet",
+        "vnfd-connection-point-ref": [
+          {
+            "vnfd-connection-point-ref": "PUBLIC",
+            "member-vnf-index-ref": "1",
+            "vnfd-id-ref": "hackfest_proxycharm-vnf"
+          },
+          {
+            "vnfd-connection-point-ref": "PUBLIC",
+            "member-vnf-index-ref": "2",
+            "vnfd-id-ref": "hackfest_proxycharm-vnf"
+          }
+        ],
+        "type": "ELAN",
+        "id": "datanet",
+        "name": "datanet"
+      }
+    ],
+    "constituent-vnfd": [
+      {
+        "member-vnf-index": "1",
+        "vnfd-id-ref": "hackfest_proxycharm-vnf"
+      },
+      {
+        "member-vnf-index": "2",
+        "vnfd-id-ref": "hackfest_proxycharm-vnf"
+      }
+    ],
+    "_admin": {
+      "usageState": "NOT_IN_USE",
+      "created": 1562572505.6255836,
+      "userDefinedData": {},
+      "storage": {
+        "pkg-dir": "hackfest_proxycharm_ns",
+        "zipfile": "package.tar.gz",
+        "descriptor": "hackfest_proxycharm_ns/hackfest_simplecharm_nsd.yaml",
+        "fs": "local",
+        "path": "/app/storage/",
+        "folder": "f00e04c3-55ba-4d5f-be75-b0bd847e9826"
+      },
+      "modified": 1562572505.6255836,
+      "projects_write": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "projects_read": "2b6c6b96-05d2-447f-9e89-bc1b4de777f4",
+      "onboardingState": "ONBOARDED",
+      "operationalState": "ENABLED"
+    },
+    "version": "1.0",
+    "logo": "osm.png",
+    "_id": "f00e04c3-55ba-4d5f-be75-b0bd847e9826",
+    "id": "hackfest_proxycharm-ns",
+    "description": "NS with 2 VNFs with cloudinit connected by datanet and mgmtnet VLs"
+  },
+  "_admin": {
+    "nsState": "INSTANTIATED",
+    "created": 1564579054.830968,
+    "modified": 1564579054.830968,
+    "projects_write": [
+      "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+    ],
+    "nslcmop": null,
+    "projects_read": [
+      "2b6c6b96-05d2-447f-9e89-bc1b4de777f4"
+    ],
+    "deployed": {
+      "VCA-model-name": "f39eebe4-823c-4169-8c40-e7de5cc68ec3",
+      "VCA": [
+        {
+          "operational-status": "maintenance",
+          "vdu_count_index": null,
+          "vdu_id": null,
+          "member-vnf-index": "1",
+          "application": "bb-b-aa",
+          "step": "initial-deploy",
+          "vdu_name": null,
+          "model": "f39eebe4-823c-4169-8c40-e7de5cc68ec3",
+          "detailed-status": "installing charm software",
+          "vnfd_id": "hackfest_proxycharm-vnf"
+        },
+        {
+          "operational-status": "maintenance",
+          "vdu_count_index": null,
+          "vdu_id": null,
+          "member-vnf-index": "2",
+          "application": "bb-c-ab",
+          "step": "initial-deploy",
+          "vdu_name": null,
+          "model": "f39eebe4-823c-4169-8c40-e7de5cc68ec3",
+          "detailed-status": "installing charm software",
+          "vnfd_id": "hackfest_proxycharm-vnf"
+        }
+      ],
+      "RO": {
+        "vnfd": []
+      }
+    }
+  },
+  "ns-instance-config-ref": "f39eebe4-823c-4169-8c40-e7de5cc68ec3",
+  "nsd-id": "f00e04c3-55ba-4d5f-be75-b0bd847e9826",
+  "id": "f39eebe4-823c-4169-8c40-e7de5cc68ec3",
+  "description": "11",
+  "short-name": "11",
+  "name-ref": "11",
+  "orchestration-progress": {},
+  "vnfd-id": [
+    "966bd79b-d84b-49a8-9acb-4c1c73f06e19"
+  ],
+  "detailed-status": "ERROR waiting proxy charms to be ready: Timeout waiting charm to be initialized for member_vnf_index=2 vdu_id=None",
+  "operational-events": [],
+  "constituent-vnfr-ref": [
+    "1d269d48-193e-43cc-a8eb-2543cc821569",
+    "412ef6ad-b818-4cbe-9996-e74b17c35f6d"
+  ],
+  "operational-status": "failed",
+  "additionalParamsForNs": null,
+  "create-time": 1564579054.82589,
+  "vld": [
+    {
+      "vim-network-name": "public",
+      "id": "mgmtnet"
+    },
+    {
+      "id": "datanet"
+    }
+  ],
+  "config-status": "init",
+  "resource-orchestrator": "osmopenmano",
+  "datacenter": "62631ff6-4fef-458e-a4d0-e38cd138b7da",
+  "ssh-authorized-key": null,
+  "name": "11",
+  "instantiate_params": {
+    "nsDescription": "11",
+    "nsName": "11",
+    "vimAccountId": "62631ff6-4fef-458e-a4d0-e38cd138b7da",
+    "nsdId": "f00e04c3-55ba-4d5f-be75-b0bd847e9826"
+  },
+  "nsd-name-ref": "hackfest_proxycharm-ns",
+  "nsd-ref": "hackfest_proxycharm-ns",
+  "_id": "f39eebe4-823c-4169-8c40-e7de5cc68ec3",
+  "admin-status": "ENABLED"
+}
+]

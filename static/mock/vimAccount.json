@@ -1,0 +1,238 @@
+[
+  {
+    "config": {
+      "sdn_ctrl": "测试"
+    },
+    "name": "ops2",
+    "schema_version": "1.1",
+    "vim_password": "ujjvwclSjQSp5T3QTngXNA==",
+    "vim_tenant_name": "admin",
+    "vim_type": "openstack",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "2094f61b-a20c-406e-a99b-43b7893eee80",
+    "_admin": {
+      "created": 1564540336.8147578,
+      "deployed": {
+        "RO": "69ab6fb0-b33b-11e9-9d38-02420aff0084",
+        "RO-account": "69b47182-b33b-11e9-9d38-02420aff0084"
+      },
+      "detailed-status": "Done",
+      "modified": 1564540336.8147578,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  },
+  {
+    "config": {},
+    "name": "ops1",
+    "schema_version": "1.1",
+    "vim_password": "7C878jVx9uClCyaf7T/3Pw==",
+    "vim_tenant_name": "admin",
+    "vim_type": "openvim",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "_admin": {
+      "created": 1564649080.8385391,
+      "deployed": {
+        "RO": "9a26795c-b438-11e9-a86f-02420aff0046",
+        "RO-account": "9a386b58-b438-11e9-a86f-02420aff0046"
+      },
+      "detailed-status": "Done",
+      "modified": 1564649080.8385391,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  },
+  {
+    "config": {},
+    "name": "ops3",
+    "schema_version": "1.1",
+    "vim_password": "7C878jVx9uClCyaf7T/3Pw==",
+    "vim_tenant_name": "admin",
+    "vim_type": "vmware",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "_admin": {
+      "created": 1564649080.8385391,
+      "deployed": {
+        "RO": "9a26795c-b438-11e9-a86f-02420aff0046",
+        "RO-account": "9a386b58-b438-11e9-a86f-02420aff0046"
+      },
+      "detailed-status": "Done",
+      "modified": 1564649080.8385391,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  },
+  {
+    "config": {},
+    "name": "ops4",
+    "schema_version": "1.1",
+    "vim_password": "7C878jVx9uClCyaf7T/3Pw==",
+    "vim_tenant_name": "admin",
+    "vim_type": "aws",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "_admin": {
+      "created": 1564649080.8385391,
+      "deployed": {
+        "RO": "9a26795c-b438-11e9-a86f-02420aff0046",
+        "RO-account": "9a386b58-b438-11e9-a86f-02420aff0046"
+      },
+      "detailed-status": "Done",
+      "modified": 1564649080.8385391,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  },
+  {
+    "config": {
+      "microversion": "hahaha"
+    },
+    "name": "ops5",
+    "schema_version": "1.1",
+    "vim_password": "7C878jVx9uClCyaf7T/3Pw==",
+    "vim_tenant_name": "admin",
+    "vim_type": "openstack",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "_admin": {
+      "created": 1564649080.8385391,
+      "deployed": {
+        "RO": "9a26795c-b438-11e9-a86f-02420aff0046",
+        "RO-account": "9a386b58-b438-11e9-a86f-02420aff0046"
+      },
+      "detailed-status": "Done",
+      "modified": 1564649080.8385391,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  },
+  {
+    "config": {},
+    "name": "ops6",
+    "schema_version": "1.1",
+    "vim_password": "7C878jVx9uClCyaf7T/3Pw==",
+    "vim_tenant_name": "admin",
+    "vim_type": "openstack",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "_admin": {
+      "created": 1564649080.8385391,
+      "deployed": {
+        "RO": "9a26795c-b438-11e9-a86f-02420aff0046",
+        "RO-account": "9a386b58-b438-11e9-a86f-02420aff0046"
+      },
+      "detailed-status": "Done",
+      "modified": 1564649080.8385391,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  },
+  {
+    "config": {},
+    "name": "ops7",
+    "schema_version": "1.1",
+    "vim_password": "7C878jVx9uClCyaf7T/3Pw==",
+    "vim_tenant_name": "admin",
+    "vim_type": "openstack",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "_admin": {
+      "created": 1564649080.8385391,
+      "deployed": {
+        "RO": "9a26795c-b438-11e9-a86f-02420aff0046",
+        "RO-account": "9a386b58-b438-11e9-a86f-02420aff0046"
+      },
+      "detailed-status": "Done",
+      "modified": 1564649080.8385391,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  },
+  {
+    "config": {},
+    "name": "ops8",
+    "schema_version": "1.1",
+    "vim_password": "7C878jVx9uClCyaf7T/3Pw==",
+    "vim_tenant_name": "admin",
+    "vim_type": "openstack",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "_admin": {
+      "created": 1564649080.8385391,
+      "deployed": {
+        "RO": "9a26795c-b438-11e9-a86f-02420aff0046",
+        "RO-account": "9a386b58-b438-11e9-a86f-02420aff0046"
+      },
+      "detailed-status": "Done",
+      "modified": 1564649080.8385391,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  },
+  {
+    "config": {},
+    "name": "ops9",
+    "schema_version": "1.1",
+    "vim_password": "7C878jVx9uClCyaf7T/3Pw==",
+    "vim_tenant_name": "admin",
+    "vim_type": "openstack",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "_admin": {
+      "created": 1564649080.8385391,
+      "deployed": {
+        "RO": "9a26795c-b438-11e9-a86f-02420aff0046",
+        "RO-account": "9a386b58-b438-11e9-a86f-02420aff0046"
+      },
+      "detailed-status": "Done",
+      "modified": 1564649080.8385391,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  },
+  {
+    "config": {},
+    "name": "ops1",
+    "schema_version": "1.1",
+    "vim_password": "7C878jVx9uClCyaf7T/3Pw==",
+    "vim_tenant_name": "admin",
+    "vim_type": "openstack",
+    "vim_url": "http://172.21.6.14:5000/v3",
+    "vim_user": "admin",
+    "_id": "e3650643-7d29-4bc8-b9ef-5c576098b6aa",
+    "_admin": {
+      "created": 1564649080.8385391,
+      "deployed": {
+        "RO": "9a26795c-b438-11e9-a86f-02420aff0046",
+        "RO-account": "9a386b58-b438-11e9-a86f-02420aff0046"
+      },
+      "detailed-status": "Done",
+      "modified": 1564649080.8385391,
+      "operationalState": "ENABLED",
+      "projects_read": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"],
+      "projects_write": ["b10e0acf-0e83-4ccf-97b9-745d2bc574e5"]
+    }
+  }
+]
+
+
