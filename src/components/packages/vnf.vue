@@ -147,7 +147,7 @@
               dialogVisible: false,
               input1: "",
               input2: "",
-              tableData: {},
+              tableData: [],
               search:'',
               currentPage: 1,
               pageSize:5,

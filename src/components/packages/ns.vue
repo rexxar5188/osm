@@ -148,7 +148,7 @@
       return{
         createVisible: false,
         input2: "",
-        tableData: {},
+        tableData: [],
         search:'',
         currentPage: 1,
         pageSize:5,

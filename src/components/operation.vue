@@ -79,7 +79,7 @@
       return{
         operationInfo:{},
         infoVisible:false,
-        tableData:{},
+        tableData:[],
         currentPage:1,
         pageSize:5,
 
