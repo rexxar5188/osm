@@ -1,37 +1,21 @@
 import axios from 'axios'
 import store from '@/store'
-import vue from '@/main.js';
-import {getToken,auth,install} from '@/utils'
+
 import { Message } from 'element-ui'
 
 const service = axios.create({
   baseURL: 'http://172.18.234.111:8000/api/v1/',
-  timeout: 5000
+  timeout: 5000,
+  withCredentials:true,
 });
+// service.defaults.headers.common['WWW-Authorization'] = localStorage.getItem('osm_auth');
 service.interceptors.request.use(function(config){
-  install(vue);
-    config.headers['WWW-Authorization']=getToken();
+    config.headers['WWW-Authorization']=localStorage.getItem('osm_auth');
   return config
 },function(error){
   return Promise.reject(error)
 });
 
-let httpRequest = {
-  api:function(url,data){
-    let method = data?'post':'get';
-    return new Promise((resolve, reject)=>{
-      service({
-        method: method,
-        url: url,
-        data: data
-      }).then((res)=>{
-        resolve(res)
-      }).catch((err)=>{
-        reject(err)
-      })
-    })
-  }
-};
 
 
 //添加响应拦截器
@@ -50,15 +34,17 @@ service.interceptors.response.use(
   // 然后根据返回的状态码进行一些操作，例如登录过期提示，错误提示等等
   // 下面列举几个常见的操作，其他需求可自行扩展
   error => {
-    if (error.response && error.response.status) {
+    if (error.response.status) {
       switch (error.response.status) {
         case 401:
           Message({
-            message: 'mano认证过期,请刷新页面',
+            type:'error',
+            message: 'mano未授权',
             duration: 1500,
             forbidClick: true
           });
-          auth();
+          localStorage.removeItem('osm_auth');
+          window.location.reload();
           break;
         case 409:
           Message({

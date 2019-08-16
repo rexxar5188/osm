@@ -365,9 +365,18 @@
       },
         methods: {
           getVimAccount(){
+            if (localStorage.getItem('osm_auth')){
             this.$api.vimApi().then((response) => {
                             this.tableData = response.data;
-                        })
+                        })}
+            else {
+              this.$api.token().then((response)=>{
+                localStorage.setItem('osm_auth',response.data.id);
+                this.$api.vimApi().then((response) => {
+                  this.tableData = response.data;
+                })
+              })
+            }
             //这样写每次请求
             // getVimAccount() {
             //     this.$axios.get('/osm/vimAccount')

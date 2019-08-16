@@ -5,18 +5,19 @@
 </template>
 
 <script>
+
   export default {
-  name: 'app',
-  components: {
-   },
-  data () {
-    return {
-      links: []
-    }
-  },
-  created () {
+    name: 'app',
+    components: {
+     },
+    data () {
+      return {
+        links: []
       }
-};
+    },
+    mounted () {}
+
+}
 
 
   // methods: {

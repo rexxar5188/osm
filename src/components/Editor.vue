@@ -82,7 +82,7 @@
       initialize (value) {
         // 初始化编辑器实例，传入需要被实例化的文本域对象和默认配置
         // 编辑器赋值
-        debugger
+
         this.coder.setValue(JSON.stringify(value,null,4));
         this.coder.setSize("auto", "auto");
         },

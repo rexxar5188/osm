@@ -3,10 +3,10 @@ import service from '@/request/http'
 
 const api={
   token(){
-    return service.get(`/auth`);
+    return service.get(`/auth/`);
   },
   vimApi(){
-    return service.get(`/vims`);
+    return service.get(`/vims/`);
   }
 };
 export default api
