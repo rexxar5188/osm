@@ -1,6 +1,7 @@
 import axios from 'axios'
 import store from '@/store'
-import {getToken,auth} from '@/utils'
+import vue from '@/main.js';
+import {getToken,auth,install} from '@/utils'
 import { Message } from 'element-ui'
 
 const service = axios.create({
@@ -8,6 +9,7 @@ const service = axios.create({
   timeout: 5000
 });
 service.interceptors.request.use(function(config){
+  install(vue);
     config.headers['WWW-Authorization']=getToken();
   return config
 },function(error){
@@ -48,7 +50,7 @@ service.interceptors.response.use(
   // 然后根据返回的状态码进行一些操作，例如登录过期提示，错误提示等等
   // 下面列举几个常见的操作，其他需求可自行扩展
   error => {
-    if (error.response.status) {
+    if (error.response && error.response.status) {
       switch (error.response.status) {
         case 401:
           Message({
@@ -78,4 +80,4 @@ service.interceptors.response.use(
   }
 );
 
-export default {service};
+export default service;

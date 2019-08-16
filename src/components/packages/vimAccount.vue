@@ -365,7 +365,6 @@
       },
         methods: {
           getVimAccount(){
-
             this.$api.vimApi().then((response) => {
                             this.tableData = response.data;
                         })

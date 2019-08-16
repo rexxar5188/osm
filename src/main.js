@@ -18,10 +18,11 @@ Vue.use(VueCookies);
 // axios.defaults.baseURL = '/api'
 // axios.defaults.headers.post['Content-Type'] = 'application/json';
 /* eslint-disable no-new */
-new Vue({
+const vue = new Vue({
   el: '#app',
   // store,
   router,
   components: { App },
   template: '<App/>',
 });
+export default vue;
