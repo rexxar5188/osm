@@ -364,16 +364,21 @@
         }
       },
         methods: {
-            //这样写每次请求
-            getVimAccount() {
-                this.$axios.get('/osm/vimAccount')
-                    .then((response) => {
-                        this.tableData = response.data;
-                        console.log("接口返回的数据",this.tableData);
+          getVimAccount(){
 
-                    }, (response) => {
-                        console.log(response.data);
-                    });
+            this.$api.vimApi().then((response) => {
+                            this.tableData = response.data;
+                        })
+            //这样写每次请求
+            // getVimAccount() {
+            //     this.$axios.get('/osm/vimAccount')
+            //         .then((response) => {
+            //             this.tableData = response.data;
+            //             console.log("接口返回的数据",this.tableData);
+            //
+            //         }, (response) => {
+            //             console.log(response.data);
+            //         });
             },
             handleEdit(index, row) {
                 this.dialogVisible = true;

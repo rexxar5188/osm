@@ -74,7 +74,7 @@
             placeholder="输入名称以搜索"/>
         </template>
         <div slot-scope="scope">
-              <i title= "编辑" class="el-icon-edit-outline action_icon" @click="handleEdit(scope.row)"></i>
+              <i title= "编辑" class="el-icon-edit-outline action_icon" @click="handleEdit(scope.$index)"></i>
           <i title= "目录结构" class="el-icon-folder-opened action_icon" @click="handleArtifacts()"></i>
           <i title= "拓扑图" class="el-icon-data-board action_icon" @click="handleTopoLogic()"></i>
           <i title= "下载包" class="el-icon-download action_icon" @click="handleDownload()"></i>  <template>
@@ -117,7 +117,7 @@
       :before-close="handleClose"
       @opened="initContent('editorRef')">
       <label>
-        <Editor ref="editorRef" :value="vnfdInfo"></Editor>
+        <Editor ref="editorRef" ></Editor>
       </label>
       <span slot="footer" class="dialog-footer">
    <el-button icon="el-icon-close" @click="editVisible=false">取消</el-button>
@@ -152,7 +152,7 @@
               currentPage: 1,
               pageSize:5,
               total: 0,
-              vnfdInfo:{},
+              vnfdIndex:{},
               editVisible: false,
               saveLoading:false,
             }
@@ -189,6 +189,12 @@
                 console.log(response.data);
               });
           },
+          handleSizeChange(val) {
+              console.log(`每页 ${val} 条`);
+          },
+          handleCurrentChange(val) {
+              console.log(`当前页: ${val}`);
+          },
           compose(){
 
               this.$router.push({ path:'/npage/osm/composeVnf'})
@@ -215,13 +221,14 @@
               .then((response) => {
                 // console.log(response.data);
                 this.tableData = response.data;
+                this.$refs[name].initialize(this.tableData[this.vnfdIndex]);
               }, (response) => {
                 console.log(response.data);
               });
-            this.$refs[name].initialize();
+
           },
-          handleEdit(row) {
-            this.vnfdInfo=row;
+          handleEdit(index) {
+            this.vnfdIndex=index;
             this.editVisible=true;
           },
           sleep(d) {

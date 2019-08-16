@@ -121,12 +121,6 @@
         const s = date.getSeconds();
         return Y+M+D+h+m+s;
       },
-      handleSizeChange(val) {
-        this.pageSize = val;
-      },
-      handleCurrentChange(val) {
-        this.currentPage = val;
-      },
     },
   };
 </script>

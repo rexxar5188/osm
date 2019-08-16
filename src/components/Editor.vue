@@ -34,13 +34,6 @@
 
   export default {
     name: 'editor',
-    components:{
-    },
-    props:{
-    // 外部传入的内容，用于实现双向绑定
-    value: {}
-    },
-
     data () {
       return {
         // 内部真实的内容
@@ -49,6 +42,7 @@
         coder:null,
         // 默认的语法类型
         mode: 'javascript',
+        value:null,
         // 默认配置
         options: {
           showCursorWhenSelecting: false,
@@ -85,15 +79,12 @@
     },
     methods: {
       // 初始化数据
-      initialize () {
+      initialize (value) {
         // 初始化编辑器实例，传入需要被实例化的文本域对象和默认配置
         // 编辑器赋值
-        this.coder.setValue(JSON.stringify(this.value,null,4));
-        // this.coder.setOption("autoRefresh", true);
+        debugger
+        this.coder.setValue(JSON.stringify(value,null,4));
         this.coder.setSize("auto", "auto");
-        // this.coder.on('change', (coder) => {
-        //   this.code = coder.getValue()});
-        // console.log(this.code)
         },
       //获取code
       getCode(){

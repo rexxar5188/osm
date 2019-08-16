@@ -2,7 +2,7 @@
   <div>
 <!--    表格-->
     <el-table
-      :data="tableDataCur.slice((currentPage-1)*pageSize,currentPage*pageSize)"
+      :data="tableDataCur"
       height='420'
       size="medium "
       border
@@ -37,7 +37,7 @@
         </template>
         <div slot-scope="scope">
           <i title="实例化" class="el-icon-caret-right action_icon" @click="handleInstantiate(scope.$index, scope.row)"></i>
-          <i  title="编辑" class="el-icon-edit-outline action_icon" @click="handleEdit(scope.row)"></i>
+          <i  title="编辑" class="el-icon-edit-outline action_icon" @click="handleEdit(scope.$index,scope.row)"></i>
           <i  title="信息" class="el-icon-info action_icon" @click="handleInfo(scope.$index, scope.row)"></i>
           <template>
             <el-popover
@@ -58,19 +58,19 @@
       </el-table-column>
     </el-table>
     <!--    分页器-->
-    <div class="pagination">
-      <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="currentPage"
-        :page-sizes="[5, 8, 10, 20]"
-        :page-size="pageSize"
-        layout="total, sizes,prev, pager, next"
-        :total="total"
-        prev-text="上一页"
-        next-text="下一页">
-      </el-pagination>
-    </div>
+<!--    <div class="pagination">-->
+<!--      <el-pagination-->
+<!--        @size-change="handleSizeChange"-->
+<!--        @current-change="handleCurrentChange"-->
+<!--        :current-page="currentPage"-->
+<!--        :page-sizes="[5, 8, 10, 20]"-->
+<!--        :page-size="pageSize"-->
+<!--        layout="total, sizes,prev, pager, next"-->
+<!--        :total="total"-->
+<!--        prev-text="上一页"-->
+<!--        next-text="下一页">-->
+<!--      </el-pagination>-->
+<!--    </div>-->
 
 <!--    上传-->
     <uploadFiles type="yaml" size="100000"></uploadFiles>
@@ -99,7 +99,7 @@
       :before-close="handleClose"
       @opened="initContent('editorRef')">
       <label>
-      <Editor ref="editorRef" :value="nstInfo"></Editor>
+      <Editor ref="editorRef" ></Editor>
       </label>
       <span slot="footer" class="dialog-footer">
    <el-button icon="el-icon-close" @click="editVisible=false">取消</el-button>
@@ -133,6 +133,7 @@ export default {
       infoVisible: false,
       editVisible: false,
       nstInfo:{},
+      nstIndex:{},
       saveLoading:false,
       datas: [
         {
@@ -188,6 +189,7 @@ export default {
         );
         this.total = res.length;
         this.currentPage = 1;
+        console.log(res);
         return res
       }
       this.total = this.tableData.length;
@@ -211,7 +213,7 @@ export default {
       this.currentPage = val;
     },
 
-    handleEdit(row) {
+    handleEdit(index,row) {
       this.nstInfo=row;
       this.editVisible=true;
     },

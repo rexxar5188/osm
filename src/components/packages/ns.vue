@@ -69,7 +69,7 @@
         </template>
         <div slot-scope="scope">
           <i class="el-icon-caret-right action_icon" title='实例化' @click="handleInstantiate(scope.$index, scope.row)"></i>
-          <i class="el-icon-edit-outline action_icon" title='编辑' @click="handleEdit(scope.row)"></i>
+          <i class="el-icon-edit-outline action_icon" title='编辑' @click="handleEdit(scope.$index)"></i>
           <i class="el-icon-folder-opened action_icon" title='目录展示' @click="handleArtifacts()"></i>
           <i class="el-icon-data-board action_icon" title='拓扑图' @click="handleTopoLogic()"></i>
           <i class="el-icon-download action_icon" title='下载包' @click="handleDownload()"></i>
@@ -100,7 +100,7 @@
       :before-close="handleClose"
       @opened="initContent('editorRef')">
       <label>
-        <Editor ref="editorRef" :value="nsdInfo"></Editor>
+        <Editor ref="editorRef"></Editor>
       </label>
       <span slot="footer" class="dialog-footer">
    <el-button icon="el-icon-close" @click="editVisible=false">取消</el-button>
@@ -133,10 +133,10 @@
 
 
 <script>
-
   import Editor from '../Editor'
   import uploadFiles from "../upload.vue";
   import instantiation from "../instantiation.vue";
+
   export default {
     name: 'ns',
     components: {
@@ -153,7 +153,7 @@
         currentPage: 1,
         pageSize:5,
         total: 0,
-        nsdInfo:{},
+        nsdIndex:{},
         editVisible: false,
         saveLoading:false,
         datas:[
@@ -254,14 +254,11 @@
       }
     },
     methods:{
-      getNs(){
-        this.$axios.get('/osm/ns')
-          .then((response) => {
-            // console.log(response.data);
-            this.tableData = response.data;
-            }, (response) => {
-            console.log(response.data);
-          });
+      getNs() {
+        this.$axios.get("/osm/ns")
+          .then((response) => {this.tableData = response.data;},
+            (response) => {console.log(response.data);
+            })
       },
       handleClose(done){
 
@@ -273,18 +270,18 @@
       },
       initContent(name){
         // 暂时先请求这个总接口,等后端写好了单独的查询接口再替换数据渲染
-        this.$axios.get('/osm/ns')
+        httpRequest.api(ns)
           .then((response) => {
-            // console.log(response.data);
             this.tableData = response.data;
+            this.$refs[name].initialize(this.tableData[this.nsdIndex]);
           }, (response) => {
             console.log(response.data);
           });
-        this.$refs[name].initialize();
+
       },
-      handleEdit(row) {
-        this.nsdInfo=row;
+      handleEdit(index) {
         this.editVisible=true;
+        this.nsdIndex=index;
       },
       sleep(d) {
         return new Promise((resolve) => setTimeout(resolve, d))
