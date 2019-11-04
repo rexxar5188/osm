@@ -13,14 +13,6 @@
     props:{
       value:{},
     },
-    data(){
-      // return{
-      // jsonData:{},
-      // }
-    },
-
-    mounted(){
-    }
   }
 
 

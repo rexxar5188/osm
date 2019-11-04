@@ -90,9 +90,9 @@
     },
     methods:{
       getOperation(){
-        // const id=this.$route.params.id
-        // const type=this.$route.params.type
-        this.$axios.get("/osm/operation")
+        let type=this.$route.params.type;
+        let id=this.$route.params.id;
+        this.$api.operation[type](id)
           .then((response) => {this.tableData = response.data; },
             (response) => {console.log(response.data);
             })

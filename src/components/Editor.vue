@@ -18,6 +18,8 @@
   import 'codemirror/addon/fold/foldcode.js';
   import 'codemirror/addon/fold/foldgutter.js';
   import 'codemirror/addon/fold/brace-fold.js';
+  import 'codemirror/addon/fold/xml-fold.js';
+  import 'codemirror/addon/fold/comment-fold.js';
   import 'codemirror/addon/search/searchcursor.js';
   import 'codemirror/addon/search/search.js';
   import 'codemirror/addon/dialog/dialog.js';
@@ -50,10 +52,10 @@
           autoRefresh: true,
           lineNumbers: true,
           lineWrapping: true,
-          // foldGutter: true,
+          foldGutter: true,
           // readOnly:'nocursor',
           fullScreen: false,
-          // gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+          gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
           autoCloseBrackets: true,
           matchBrackets: true,
           extraKeys: {
@@ -83,12 +85,13 @@
         // 初始化编辑器实例，传入需要被实例化的文本域对象和默认配置
         // 编辑器赋值
 
-        this.coder.setValue(JSON.stringify(value,null,4));
+        this.coder.setValue(JSON.stringify(value,null,"\t"));
         this.coder.setSize("auto", "auto");
         },
       //获取code
       getCode(){
         this.code=this.coder.getValue();
+        console.log('this.code');
         console.log(this.code);
         return this.code;
       },

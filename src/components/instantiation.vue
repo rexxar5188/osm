@@ -41,51 +41,67 @@
 <script>
 export default {
   name: "instantiation",
-  props: ["datas",'title'],
+  props: ["datas",'title','topic','addarg'],
   data() {
     return {
       dialogVisible: false,
       ruleForm: {},
-      rules: {}
+      rules: {},
+      instantiateApi:{'ns':this.$api.ns}
     };
   },
   created() {
     console.log("子组件datas", this.datas);
-    var form = {};
+    let form = {};
     this.datas.forEach((v, i) => {
-      var name = v.nameCode;
-      var isRequired = v.required;
-      var message = "";
+      let name = v.nameCode;
+      let isRequired = v.required;
+      let message = "";
       if (!isRequired) {
         message = "";
       } else {
         message = v.message;
       }
       form[name] = "";
-      var rulesChild = [
+      let rulesChild = [
         { required: isRequired, message: message, trigger: "blur" }
       ];
       this.rules[name] = rulesChild;
     }
     );
-    console.log("form", form);
     this.ruleForm = form;
-    console.log("this.ruleForm,this.rules", this.ruleForm, this.rules);
   },
   methods: {
     open() {
       this.dialogVisible = true;
     },
-    submitForm(formName) {
+    refreshData(){
+      this.$api[this.topic].list()
+        .then((response)=>{
+          this.$emit('refresh',response.data)
+        })
+    },
+    async submitForm(formName) {
       this.$refs[formName].validate(valid => {
-        console.log("表单数据", this.ruleForm);
         if (valid) {
-          alert(this.ruleForm);
+          this.ruleForm={
+            ...this.ruleForm,
+            ...this.addarg,
+          };
+          // delete this.ruleForm.config;
+          // delete this.ruleForm.nsDescription;
+          // delete this.ruleForm.ssh_keys;
+          this.$api[this.topic].create(this.ruleForm)
+            .then((response)=>{
+              alert('实例化成功,实例id:'+response.data.id);
+            });
           this.dialogVisible = false;
+          this.resetForm('ruleForm')
         } else {
           console.log("error submit!!");
           return false;
         }
+        this.resetForm('ruleForm');
       });
     },
     resetForm(formName) {

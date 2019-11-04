@@ -80,8 +80,8 @@
   #leftside {
     border-right: 1px solid #AFAFAF;
     flex: 0 0 ;
-    height: 500px;
-    max-width: 300px;
+    height: 100%;
+    max-width: 30%;
     min-width: 150px;
     padding: 20px 30px;
     display: flex;
@@ -107,8 +107,8 @@
   #side {
     border-left: 1px solid #AFAFAF;
     flex: 0 0 auto;
-    max-width: 500px;
-    min-width: 300px;
+    max-width: 50%;
+    min-width: 30%;
     padding: 20px 30px;
     display: flex;
     flex-direction: column;

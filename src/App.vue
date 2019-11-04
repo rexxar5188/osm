@@ -1,57 +1,24 @@
 <template>
   <div id="app">
-        <router-view></router-view>
+      <router-view ></router-view>
   </div>
 </template>
 
 <script>
-
   export default {
     name: 'app',
     components: {
      },
     data () {
       return {
-        links: []
+
       }
     },
-    mounted () {}
+    mounted () {
+    },
+
 
 }
-
-
-  // methods: {
-  //   getToken() {
-  //     this.$axios.get('/osm/token').then(this.saveToken);
-  //   //   this.$axios.post('/json_auth/',
-  //   //     { username: 'admin', password: 'admin', project_id: '',next: '#' },
-  //   //     { headers: { Accept: 'application/json' ,ContentType: 'application/json'},withCredentials: false, })
-  //   //     .then(this.saveToken);
-  //   },
-  //   saveToken(token) {
-  //     // this.$alert(token.data)
-  //     sessionStorage.setItem('token', token.data);
-  //   },
-  // },
-  // mounted() {
-  //   this.getToken();
-  // },
-  // "https://172.18.232.194:9999/osm/admin/v1/tokens"
-  // 请求体:
-  // {'username': 'admin', 'password': 'admin', 'project_id': ''}
-  //  请求头:
-  // {'Accept': 'application/json'}
-  // 返回结果:
-  // {'project_id': 'admin',
-  //  'admin': True,
-  //  'issued_at': 1563246045.497413,
-  //  'id': 'hRLKuMAB49YgeGq46IOvm5VcbTI1hJOJ',
-  //  '_id': 'hRLKuMAB49YgeGq46IOvm5VcbTI1hJOJ',
-  //  'remote_host': '10.255.0.2',
-  //  'expires': 1563249645.497413,
-  //  'username': 'admin',
-  //  'remote_port': 49771}
-
 </script>
 
 <style>
@@ -67,6 +34,94 @@
     font-size: 16px;
     padding: 5px;
   }
-  i{
-    cursor: pointer;}
+  i{cursor: pointer;}
+  @-webkit-keyframes spin {
+    0%   {left: 500px;top:-88px;opacity: 1;}
+    100% {left: 600px;top:0;opacity: 0;}
+  }
+
+  @keyframes spin {
+    0%   {left: 500px;top:-88px;opacity: 1;}
+    100% {left: 600px;top:0;opacity: 0;}
+  }
+
+  @-webkit-keyframes spin2 {
+    0%   {left: 600px;top:-58px;opacity: 1;}
+    100% {left: 650px;top:0;opacity: 0;}
+  }
+
+  @keyframes spin2 {
+    0%   {left: 600px;top:-58px;opacity: 1;}
+    100% {left: 650px;top:0;opacity: 0;}
+  }
+
+  @-webkit-keyframes spin3 {
+    0%   {left: 750px;top:-58px;opacity: 1;}
+    100% {left: 800px;top:0;opacity: 0;}
+  }
+
+  @keyframes spin3 {
+    0%   {left: 750px;top:-58px;opacity: 1;}
+    100% {left: 800px;top:0;opacity: 0;}
+  }
+
+
+  @-webkit-keyframes spin4 {
+    0%   {left: 1000px;top:-68px;opacity: 1;}
+    100% {left: 1050px;top:0;opacity: 0;}
+  }
+
+  @keyframes spin4 {
+    0%   {left: 1000px;top:-68px;opacity: 1;}
+    100% {left: 1050px;top:0;opacity: 0;}
+  }
+
+  @-webkit-keyframes spin5 {
+    0%   {left: 1200px;top:-58px;opacity: 1;}
+    100% {left: 1250px;top:0;opacity: 0;}
+  }
+
+  @keyframes spin5 {
+    0%   {left: 1200px;top:-58px;opacity: 1;}
+    100% {left: 1250px;top:0;opacity: 0;}
+  }
+
+
+  @-webkit-keyframes dian1 {
+    0%   {left: 0;top:6px;}
+    50%   {left: 600px;top:54px;}
+    100% {left: 1200px;top:0;}
+  }
+
+  @keyframes dian1 {
+    0%   {left: 0;top:6px;}
+    50%   {left: 600px;top:54px;}
+    100% {left: 1200px;top:0;}
+  }
+
+
+  @-webkit-keyframes dian2 {
+    0%   {right: 0;top:6px;}
+    50%   {right: 600px;top:54px;}
+    100% {right: 1200px;top:0;}
+  }
+
+  @keyframes dian2 {
+    0%   {right: 0;top:6px;}
+    50%   {right: 600px;top:54px;}
+    100% {right: 1200px;top:0;}
+  }
+
+
+  @-webkit-keyframes dian3 {
+    0%   {left: 600px;top:0;}
+    50%   {left: 800px;top:50px;}
+    100% {left: 1000px;top:0;}
+  }
+
+  @keyframes dian3 {
+    0%   {left: 600px;top:0;}
+    50%   {left: 800px;top:50px;}
+    100% {left: 1000px;top:0;}
+  }
 </style>

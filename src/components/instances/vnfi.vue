@@ -114,12 +114,9 @@
     },
     methods:{
       getVnfi(){
-        // const id=this.$route.params.id
-        // const type=this.$route.params.type
-        this.$axios.get("/osm/vnfi")
-          .then((response) => {this.tableData = response.data;},
-            (response) => {console.log(response.data);
-            })
+        this.$api.vnfi.list().then((response) => {
+          this.tableData = response.data;
+        })
       },
       handleInfo(index,row){
         this.infoVisible=true;

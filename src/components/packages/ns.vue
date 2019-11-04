@@ -1,7 +1,7 @@
 <template>
   <div>
 <!--    新增按钮-->
-    <div  style="position: absolute; border:1px; right:15px;top: 20px">
+    <div  style="float: right;margin: 10px;">
       <el-button type="primary" style="background-color: #68AFFF;border-color: #68AFFF"  @click="createVisible = true">新建NSD</el-button>
     </div>
 <!--    新增对话框-->
@@ -69,10 +69,10 @@
         </template>
         <div slot-scope="scope">
           <i class="el-icon-caret-right action_icon" title='实例化' @click="handleInstantiate(scope.$index, scope.row)"></i>
-          <i class="el-icon-edit-outline action_icon" title='编辑' @click="handleEdit(scope.$index)"></i>
+          <i class="el-icon-edit-outline action_icon" title='编辑' @click="handleEdit(scope.$index, scope.row)"></i>
           <i class="el-icon-folder-opened action_icon" title='目录展示' @click="handleArtifacts()"></i>
           <i class="el-icon-data-board action_icon" title='拓扑图' @click="handleTopoLogic()"></i>
-          <i class="el-icon-download action_icon" title='下载包' @click="handleDownload()"></i>
+          <i class="el-icon-download action_icon" title='下载包' @click="handleDownload(scope.row)"></i>
           <template>
             <el-popover
               placement="top"
@@ -98,17 +98,17 @@
       :visible.sync="editVisible"
       width="70%"
       :before-close="handleClose"
-      @opened="initContent('editorRef')">
+      @opened="initContent('editorRef',reqId)">
       <label>
         <Editor ref="editorRef"></Editor>
       </label>
       <span slot="footer" class="dialog-footer">
    <el-button icon="el-icon-close" @click="editVisible=false">取消</el-button>
-    <el-button type="primary" @click="saveNsd" :loading="this.saveLoading">保存<i class="el-icon-upload el-icon--left"></i></el-button>
+    <el-button type="primary" @click="saveNsd(reqId)" :loading="this.saveLoading">保存<i class="el-icon-upload el-icon--left"></i></el-button>
   </span>
     </el-dialog>
 <!--    实例化-->
-    <instantiation :datas="datas" title='网络服务实例化' ref="instantiation"></instantiation>
+    <instantiation :datas="datas" :addarg="addarg" topic="ssi"  title='子网切片实例化' ref="instantiation"></instantiation>
     <!--    分页器-->
     <div class="pagination">
       <el-pagination
@@ -124,7 +124,7 @@
       </el-pagination>
     </div>
     <!--    上传-->
-    <uploadFiles type="yaml" size="100000"></uploadFiles>
+    <uploadFiles topic="ns" @refresh="refreshTableData" size="100000"></uploadFiles>
   </div>
 
 
@@ -136,6 +136,7 @@
   import Editor from '../Editor'
   import uploadFiles from "../upload.vue";
   import instantiation from "../instantiation.vue";
+  import {MessageBox} from 'element-ui';
 
   export default {
     name: 'ns',
@@ -153,88 +154,17 @@
         currentPage: 1,
         pageSize:5,
         total: 0,
-        nsdIndex:{},
+        reqId:{},
         editVisible: false,
         saveLoading:false,
-        datas:[
-          {
-            name: "名称",
-            nameCode: "name",
-            type: "input",
-            placeholder: "切片名称",
-            required: true,
-            message: "请填写切片名称"
-          },
-          {
-            name: "备注",
-            nameCode: "description",
-            type: "input",
-            placeholder: "切片备注",
-            required: false,
-          },
-          {
-            name: "NSD id",
-            nameCode: "nsdId",
-            type: "select",
-            placeholder: "选择网络服务描述",
-            required: true,
-            message: "请选择网络服务描述",
-            options: [
-              {
-                name: "cirros_vdu_alarm_ns",
-                nameCode: "id1"
-              },
-              {
-                name: "hackfest_proxycharm-ns",
-                nameCode: "id2"
-              },
-              {
-                name: "hybrid_lbwebvnf_gwpnf_ns",
-                nameCode: "id3"
-              },
-              {
-                name: "vyos_ns",
-                nameCode: "id4"
-              },
-            ]
-          },
-          {
-            name: "vimAccount",
-            nameCode: "vimAccount",
-            type: "select",
-            placeholder: "选择vimAccount",
-            required: true,
-            message: "请选择vimAccount述",
-            options: [
-              {
-                name: "ops",
-                nameCode: "ops"
-              },
-            ]
-          },
-          {
-            name: "SSH Key",
-            nameCode: "ssh_key",
-            type: "textarea",
-            placeholder: "ssh公钥",
-            required: false
-          },
-          {
-            name: "配置",
-            nameCode: "config",
-            type: "textarea",
-            placeholder: "额外配置",
-            required: false
-          }
-        ]
-        ,
+        vimOptions:[],
+        addarg:{},
       }
     },
     mounted() {
       this.getNs();
-
+      this.getVimOptions();
     },
-
     computed:{
       tableDataCur () {
         if (this.search){
@@ -251,77 +181,134 @@
         this.total = this.tableData.length;
         this.currentPage = 1;
         return this.tableData
-      }
+      },
+      datas(){
+        return [
+        {
+          name: "名称",
+          nameCode: "nsName",
+          type: "input",
+          placeholder: "子网切片名称",
+          required: true,
+          message: "请填写子网切片名称"
+        },
+        {
+          name: "备注",
+          nameCode: "nsDescription",
+          type: "input",
+          placeholder: "切片备注",
+          required: false,
+        },
+        {
+          name: "vimAccount",
+          nameCode: "vimAccountId",
+          type: "select",
+          placeholder: "选择vimAccount",
+          required: true,
+          message: "请选择vimAccount",
+          options: this.vimOptions
+        },
+        {
+          name: "SSH Key",
+          nameCode: "ssh_keys",
+          type: "textarea",
+          placeholder: "ssh公钥",
+          required: false
+        },
+        {
+          name: "配置",
+          nameCode: "config",
+          type: "textarea",
+          placeholder: "额外配置,yaml格式",
+          required: false
+        }
+      ]},
     },
     methods:{
       getNs() {
-        this.$axios.get("/osm/ns")
-          .then((response) => {this.tableData = response.data;},
-            (response) => {console.log(response.data);
-            })
+        this.$api.ns.list().then((response) => {
+          this.tableData = response.data;
+        })
       },
+      getVimOptions(){
+        this.$api.vim.list().then((response) => {
+          response.data.forEach((v,i)=>{
+            this.vimOptions.push({name:v.name,nameCode:v._id})
+          });
+        })},
       handleClose(done){
-
         this.$confirm('确认关闭？')
           .then(() => {
             done();
           })
           .catch(() => {});
       },
-      initContent(name){
-        // 暂时先请求这个总接口,等后端写好了单独的查询接口再替换数据渲染
-        httpRequest.api(ns)
+      initContent(name,reqId){
+        this.$api.ns.detail(reqId)
           .then((response) => {
-            this.tableData = response.data;
-            this.$refs[name].initialize(this.tableData[this.nsdIndex]);
-          }, (response) => {
-            console.log(response.data);
+            this.$refs[name].initialize(response.data);
           });
 
       },
-      handleEdit(index) {
+      handleEdit(index,row) {
         this.editVisible=true;
-        this.nsdIndex=index;
+        this.reqId=row._id;
       },
-      sleep(d) {
-        return new Promise((resolve) => setTimeout(resolve, d))
-      },
-      //先假装保存
-      async saveNsd(){
+      saveNsd(id) {
         let code = this.$refs.editorRef.getCode();
-        console.log(code);
-        this.saveLoading=true;
-        await this.sleep(1800);
-        this.saveLoading=false;
-        this.editVisible=false;
-        this.$message({
-          message: '保存成功',
-          type: 'success'
+        try {
+          JSON.parse(code);
+        }catch (e) {
+          MessageBox.alert(e,'json格式错误');
+          return
+        }
+        // this.saveLoading = true;
+        this.$api.ns.put(id,code).then(()=>{
+          this.$message({
+            message: "保存成功",
+            type: "success"
+          });
         });
+        // this.saveLoading = false;
+        this.editVisible = false;
+
       },
       handleInstantiate(i, v) {
-        // this.datas.push(v);
-        // console.log("i,v",i,v)
-        console.log(" datas", this.datas);
-        console.log("  this.$refs.instantiation", this.$refs.instantiation);
-
+        //接口需要nsdId 不需要出现在表单选择,直接传给后台
+        this.addarg={'nsdId':v._id};
         this.$refs.instantiation.open();
       },
-      handleDelete(id,row){
-        alert(row['_id'])
-        this.$refs[id].doClose();
+      handleDelete(index,row){
+        this.$api.ns.delete(row._id).then(()=>{
+          this.$message({
+            type:'success',
+            message: '删除成功',
+            duration: 1500,
+            forbidClick: true
+          });
+          this.getNs();
+        });
+        this.$refs[index].doClose();
       },
       cancelDelete(id){
         this.$refs[id].doClose();
       },
       compose(){
-        this.$router.push({ path:'/npage/osm/composeVnf'})
+        //this.$router.push({ path:'/npage/osm/composeVnf'})
       },
       handleSizeChange(val) {
         this.pageSize = val;
       },
       handleCurrentChange(val) {
         this.currentPage = val;
+      },
+      refreshTableData(data){
+        this.tableData=data
+      },
+      handleDownload(row) {
+        let url='http://172.18.234.111:8000/api/v1/nsd/download/'+row._id+'/';
+        // window.open(urls, '_blank');
+        this.$api.downLoadPost(url,null,row.id)
       },
     }
   };

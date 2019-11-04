@@ -1,11 +1,11 @@
 <template>
   <div>
     <!--    新增按钮-->
-    <div  style="position: absolute; border:1px; right:15px;top: 20px">
+    <div  style="float: right;margin: 10px;">
       <el-button type="primary" style="background-color: #68AFFF;border-color: #68AFFF"  @click="handleInstantiate">新建子网切片实例</el-button>
     </div>
 <!--    新建实例对话框-->
-    <instantiation :datas="datas" title='新建子网切片实例' ref="instantiation"></instantiation>
+    <instantiation :datas="datas" title='新建子网切片实例'  @refresh="refreshTableData" topic="ssi" ref="instantiation"></instantiation>
     <!--    表格-->
     <el-table
       :data="tableDataCur.slice((currentPage-1)*pageSize,currentPage*pageSize)"
@@ -20,7 +20,7 @@
       </el-table-column>
       <el-table-column
         prop="id"
-        label="模板ID"
+        label="ID"
         width="180">
       </el-table-column>
       <el-table-column
@@ -66,8 +66,8 @@
             </el-popover>
           <i  title="虚拟网元指令" class="el-icon-magic-stick action_icon" @click="handlePrimitive(scope.row)"></i>
           <i  title="操作历史" class="el-icon-s-order action_icon" @click="handleHistory(scope.row)"></i>
-          <el-button  title="激活" disabled   class='action_icon' type="text" icon="el-icon-video-play" @click="startNs(scope.row)"></el-button>
-          <el-button  title="去激活" disabled   class='action_icon' type="text" icon="el-icon-video-pause" @click="stopNs(scope.row)"></el-button>
+          <el-button  title="激活"    class='action_icon' type="text" icon="el-icon-video-play" @click="startSsi(scope.row)"></el-button>
+          <el-button  title="去激活"    class='action_icon' type="text" icon="el-icon-video-pause" @click="stopSsi(scope.row)"></el-button>
           </template>
         </div>
       </el-table-column>
@@ -160,82 +160,13 @@
         primitiveVisible:false,
         tableData: [],
         search:'',
+        nsOptions:[],
+        vimOptions:[],
         currentPage: 1,
         pageSize:5,
         total: 0,
         ssiInfo:{},
         saveLoading:false,
-        datas:[
-          {
-            name: "名称",
-            nameCode: "name",
-            type: "input",
-            placeholder: "子网切片名称",
-            required: true,
-            message: "请填写子网切片名称"
-          },
-          {
-            name: "备注",
-            nameCode: "description",
-            type: "input",
-            placeholder: "子网切片备注",
-            required: false,
-          },
-          {
-            name: "NSD id",
-            nameCode: "nsdId",
-            type: "select",
-            placeholder: "选择网络服务描述",
-            required: true,
-            message: "请选择网络服务描述",
-            options: [
-              {
-                name: "cirros_vdu_alarm_ns",
-                nameCode: "cirros_vdu_alarm_ns"
-              },
-              {
-                name: "hackfest_proxycharm-ns",
-                nameCode: "hackfest_proxycharm-ns"
-              },
-              {
-                name: "hybrid_lbwebvnf_gwpnf_ns",
-                nameCode: "hybrid_lbwebvnf_gwpnf_ns"
-              },
-              {
-                name: "vyos_ns",
-                nameCode: "vyos_ns"
-              },
-            ]
-          },
-          {
-            name: "vimAccount",
-            nameCode: "vimAccount",
-            type: "select",
-            placeholder: "选择vimAccount",
-            required: true,
-            message: "请选择vimAccount",
-            options: [
-              {
-                name: "ops",
-                nameCode: "ops"
-              },
-            ]
-          },
-          {
-            name: "SSH Key",
-            nameCode: "ssh_key",
-            type: "textarea",
-            placeholder: "ssh公钥",
-            required: false
-          },
-          {
-            name: "配置",
-            nameCode: "config",
-            type: "textarea",
-            placeholder: "额外配置",
-            required: false
-          }
-        ],
         primitiveSsi:'',
         primitiveForm: {
           configs: [{
@@ -250,8 +181,15 @@
     },
     mounted() {
       this.getSsi();
+      this.timer=setInterval(
+        this.getSsi
+        , 6000);
+      this.getNsOptions();
+      this.getVimOptions();
     },
-
+    destroyed() {
+      clearInterval(this.timer);
+    },
     computed:{
       tableDataCur () {
         if (this.search){
@@ -267,18 +205,78 @@
         this.total = this.tableData.length;
         this.currentPage = 1;
         return this.tableData
+      },
+      datas(){
+        return [
+      {
+        name: "名称",
+        nameCode: "nsName",
+        type: "input",
+        placeholder: "子网切片名称",
+        required: true,
+        message: "请填写子网切片名称"
+      },
+      {
+        name: "备注",
+        nameCode: "nsDescription",
+        type: "input",
+        placeholder: "子网切片备注",
+        required: true,
+      },
+      {
+        name: "NSD id",
+        nameCode: "nsdId",
+        type: "select",
+        placeholder: "选择子网切片描述",
+        required: true,
+        message: "请选择子网切片描述",
+        options: this.nsOptions,
+      },
+      {
+        name: "vimAccount",
+        nameCode: "vimAccountId",
+        type: "select",
+        placeholder: "选择vimAccount",
+        required: true,
+        message: "请选择vimAccount",
+        options: this.vimOptions,
+      },
+      {
+        name: "SSH Key",
+        nameCode: "ssh_keys",
+        type: "textarea",
+        placeholder: "ssh公钥",
+        required: false
+      },
+      {
+        name: "配置",
+        nameCode: "config",
+        type: "textarea",
+        placeholder: "额外配置",
+        required: false
       }
+    ]},
+
     },
     methods:{
-    getSsi(){
-      this.$axios.get('/osm/ssi')
-        .then((response) => {
-          // console.log(response.data);
-          this.tableData =  response.data;
-          }, (response) => {
-          console.log(response.data);
-        });
-    },
+      getSsi(){
+        this.$api.ssi.list().then((response) => {
+          this.tableData = response.data;
+        })
+      },
+      getNsOptions(){
+        this.$api.ns.list().then((response) => {
+          response.data.forEach((v,i)=>{
+            this.nsOptions.push({name:v.id,nameCode:v._id})
+          });
+        })
+      },
+      getVimOptions(){
+        this.$api.vim.list().then((response) => {
+          response.data.forEach((v,i)=>{
+            this.vimOptions.push({name:v.name,nameCode:v._id})
+          });
+        })},
       handleSizeChange(val) {
         this.pageSize = val;
       },
@@ -307,7 +305,7 @@
         }
       },
       removeConfig(config){
-        var index = this.primitiveForm.configs.indexOf(config);
+        let index = this.primitiveForm.configs.indexOf(config);
         if (index !== -1) {
           this.primitiveForm.configs.splice(index, 1)
         }
@@ -330,24 +328,58 @@
       handleInfo(index,row){
         this.infoVisible=true;
         this.ssiInfo=row;},
-      handleDelete(id,row){
-        alert(row['_id']);
-        this.$refs[id].doClose();
+      handleDelete(index,row){
+        this.$api.ssi.delete(row._id).then(()=>{
+          this.$message({
+            type:'success',
+            message: '删除成功',
+            duration: 1500,
+            forbidClick: true
+          });
+          this.getSsi();
+        });
+        this.$refs[index].doClose();
       },
       cancelDelete(id){
         this.$refs[id].doClose();
         console.log(id)
       },
-      handleHistory(row){
+      handleHistory(row) {
+        if (this.$route.path.split('/')[1]==='nav')
+        {this.$router.push({
+          name: 'nav_operation',
+          params: {
+            id: row.id,
+            type: 'ssi',
+          }
+        });}else {
           this.$router.push({
             name: 'operation',
             params: {
               id: row.id,
-              type:'ssi',
+              type: 'ssi',
             }
-          })
+          });
+        }
       },
-      startNs(){}
+      startSsi(row){
+        let data= {
+          "nsName": row.instantiate_params.nsName,
+          "nsdId": row.instantiate_params.nsdId,
+          "vimAccountId": row.instantiate_params.vimAccountId,
+        };
+        this.$api.ssi.start(row._id,data).then(()=> {
+          this.getSsi();
+        })
+      },
+      stopSsi(row){
+        this.$api.ssi.stop(row._id).then(()=> {
+          this.getSsi();
+        })
+      },
+      refreshTableData(data){
+        this.tableData=data
+      },
     }
   };
 </script>

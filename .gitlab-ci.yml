@@ -1,0 +1,15 @@
+stages:
+  - deploy
+
+docker-deploy:
+  stage: deploy
+  script:
+    - if [ $(docker ps -aq --filter name=osm_ui) ]; then docker rm -f osm_ui;fi
+    - if [ $(docker images osm_ui) ]; then docker rmi osm_ui;fi
+    - docker build -f ./Dockerfile.local -t osm_ui .
+    - docker run -d -p 8080:80 --name osm_ui osm_ui
+  tags:
+    - osm
+  only:
+    - master
+    # - branch

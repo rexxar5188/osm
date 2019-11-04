@@ -6,18 +6,41 @@ import router from './router';
 import axios from 'axios';
 import './plugins/element.js';
 import JsonViewer from 'vue-json-viewer';
-import api from './request/url'
+import api from './request/url';
 // import store from './store';
-import VueCookies from 'vue-cookies'
+
 
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
 Vue.prototype.$api = api;
+Vue.prototype.$sleep = (d) => {
+  return new Promise((resolve) => setTimeout(resolve, d));
+};
+Vue.filter('timeFormatFilter', (row) => {
+  const date = new Date(row['_admin']['created'] * 1000);
+  const Y = date.getFullYear() + '-';
+  const M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+  const D = date.getDate() + ' ';
+  const h = date.getHours() + ':';
+  const m = date.getMinutes() + ':';
+  const s = date.getSeconds();
+  return Y + M + D + h + m + s;
+});
+
 Vue.use(JsonViewer);
-Vue.use(VueCookies);
-// axios.defaults.baseURL = '/api'
-// axios.defaults.headers.post['Content-Type'] = 'application/json';
-/* eslint-disable no-new */
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(route => route.meta.requirejwt)) { // 判断该路由是否需要登录权限
+    if (localStorage.token) {
+      next();
+    } else {
+      next({
+        path: '/403',
+      })
+    }
+  } else {
+    next();
+  }
+});
 new Vue({
   el: '#app',
   // store,
@@ -25,4 +48,4 @@ new Vue({
   components: { App },
   template: '<App/>',
 });
-export default Vue
+export default Vue;
